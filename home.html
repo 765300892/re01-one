@@ -1,0 +1,3882 @@
+<!DOCTYPE html>
+<html data-dpr="1" style="font-size: 76.8px">
+  <head>
+    <title>叁.行設計—德鹏翔住宅</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta
+      name="keywords"
+      content="VR全景合成，全景合成，全景在线合成，全景制作软件，叁.行設計—德鹏翔住宅全景效果图，住宅全景效果图，住宅装修全景效果图，建E全景"
+    />
+    <meta
+      name="description"
+      content=" 建E全景是一款免费的VR全景在线制作软件，3分钟快速合成，10秒一键分享，让你签单快人一步，是300万设计师都在用的在线签单工具。"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script src="https://hm.baidu.com/hm.js?d354a40e1143f3574bc86106fd51eddb"></script>
+    <script
+      type="text/javascript"
+      src="https://res1.justeasy.cn/min/b=js&amp;f=jquery.min.js,jquery.qrcode.min.js,touch.min.js,3.0/page/vr/cat.touchjs.js,art-template-web.js,clipboard.min.js,swiper4.0.5.min.js,flexible.js,iscroll2.js,navbarscroll.js?v=202300801601"
+    ></script>
+    <style>
+      .cur {
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        -webkit-user-select: none;
+        -moz-user-focus: none;
+        -moz-user-select: none;
+      }
+    </style>
+    <script>
+      function getQueryStringByName(name) {
+        var result = location.search.match(
+          new RegExp("[\?\&]" + name + "=([^\&]+)", "i")
+        );
+        if (result == null || result.length < 1) {
+          return "";
+        }
+        return result[1];
+      }
+      function G(name) {
+        return getQueryStringByName(name);
+      }
+      $.ajax({
+        url: "https://vr.justeasy.cn/v/ct",
+        type: "get",
+        dataType: "jsonp",
+        timeout: 1000,
+        data: {
+          id: "1v6hwm9043g28b87",
+          lastupdate: "1692153783",
+          act: "preview",
+          host: "vr.justeasy.cn",
+          timestamp: "1692183229",
+          authid: "0",
+          noncestr: "",
+          signature: "2b33b978feaa3d707fcbeff1850ea774462c19eb",
+          _get: window.location.search,
+        },
+        success: function (res) {
+          if (res.status == -201) {
+            location.href = res.url;
+          }
+        },
+      });
+      var weixin = 0;
+      var _userAgent = navigator.userAgent;
+      if (
+        _userAgent.indexOf("MicroMessenger") > -1 &&
+        _userAgent.indexOf("wxwork") > -1
+      ) {
+        weixin = 1;
+      } else if (_userAgent.indexOf("MicroMessenger") > -1) {
+        weixin = 2;
+      }
+      var wx_share_appId = "wx2ed7c1e3c0abd05b";
+      if (weixin == 1) {
+        wx_share_appId = "ww219d1e0efe7d0cd7";
+      }
+      var vr_isWxAndroid = 0;
+      if (weixin > 0 && _userAgent.indexOf("Android") > -1) {
+        vr_isWxAndroid = 1;
+      }
+      function setCookie(name, value, Days) {
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        document.cookie =
+          name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+      }
+      function getCookie(name) {
+        var arr,
+          reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if ((arr = document.cookie.match(reg))) return unescape(arr[2]);
+        else return null;
+      }
+      function settime() {
+        if (countdown == 0) {
+          $("#timesss").html(countdown + "s");
+          $("#timesss").html("关闭").css({ color: "#fff" });
+          $(".vr-close222").addClass("vr-close-btn");
+          $(".vr-gg-box").hide();
+          clearInterval(downClearTime);
+        } else {
+          countdown--;
+          $("#timesss").html(countdown + "s");
+        }
+      }
+      function openAdvertlink(url) {
+        if (app == "android") {
+          android.goMicro("0", " ", url);
+        } else if (app == "ios") {
+          window.webkit.messageHandlers.goMicro.postMessage({
+            canShare: "0",
+            title: " ",
+            url: url,
+          });
+        } else {
+          if (is_mobile > 0) {
+            location.href = url;
+          } else {
+            window.open(url);
+          }
+        }
+      }
+      var liked = "",
+        like_num = 0,
+        view_num = 0,
+        is_view = 0,
+        is_like = 0,
+        is_vip = 0;
+      var wx_share_timestamp = "",
+        wx_share_nonceStr = "",
+        wx_share_signature = "";
+      var pano_like = getCookie("pano_like");
+      var uv_code = getCookie("vr_vip_statis_uv");
+      var vr_view_num = 0;
+      var countdown = 5;
+      var downClearTime = null;
+      var _time = parseInt(0);
+      var countDownClearTime = null;
+      var vip_auth_micro = 0,
+        vip_auth_TopAdvert = 0,
+        vip_auth_watermark = 0,
+        vip_auth_logo = 0;
+      var vip_auth_watermark_origin = "",
+        is_offline_pano = 0;
+      var open_advert_h5 = "";
+      $.ajax({
+        url: "https://vr.justeasy.cn/v/lv/27909322",
+        type: "get",
+        dataType: "jsonp",
+        data: {
+          pano_like: pano_like,
+          uv_code: uv_code,
+          weixin: weixin,
+          url: location.href,
+        },
+        success: function (res) {
+          if (res.status == 200) {
+            is_vip = res.list.is_vip;
+            liked = res.list.liked;
+            like_num = res.list.like_num;
+            view_num = res.list.view_num;
+            is_view = res.list.is_view;
+            is_like = res.list.is_like;
+            wx_share_timestamp = res.list.timestamp;
+            wx_share_nonceStr = res.list.nonceStr;
+            wx_share_signature = res.list.signature;
+            vr_view_num = res.list.view_num;
+            vip_auth_micro = res.list.vip_auth_micro;
+            vip_auth_TopAdvert = res.list.vip_auth_TopAdvert;
+            vip_auth_watermark = res.list.vip_auth_watermark;
+            vip_auth_watermark_origin = res.list.vip_auth_watermark_origin;
+            is_offline_pano = res.list.is_offline;
+            vip_auth_logo = res.list.vip_auth_logo;
+            if (vip_auth_TopAdvert) {
+              $(".top-advert").hide();
+              $(".vip_urlname").hide();
+              $("#bodyclass").hide();
+            }
+            if (!res.list.vip_auth_intment) {
+              $(".mdesigner1").hide();
+            }
+            if (res.list.vip_auth_micro) {
+              $(".p_class_micro_icon").hide();
+            }
+            if (!res.list.vip_auto_map) {
+              $(".vip_map").hide();
+            }
+            $("#pano-wrapper .mobile").hide();
+            if (res.list.vip_auto_mobile == 2) {
+              $("#pano-wrapper .mobile").show();
+            }
+            if (res.list.vip_auto_mobile == 1) {
+              $(".vip_mobile1").show();
+            }
+            if (res.list.shareurl) {
+              $("#shareimg canvas").remove();
+              $("#shareimg").qrcode({
+                render: "canvas",
+                ecLevel: "H",
+                size: 180,
+                radius: 0.5,
+                width: 180,
+                height: 180,
+                background: "#ffffff",
+                text: res.list.shareurl,
+              });
+            }
+            if (is_vip) {
+              $(".canvasHary").hide();
+            }
+            if (res.list.uv_code != -1) {
+              setCookie("vr_vip_statis_uv", res.list.uv_code, 1);
+            }
+            if (is_offline_pano == 1) {
+              $("body").html(
+                '<div id="save_theft_tips" class="vr-del-showbox vr-save-theft-showbox none">\n' +
+                  '    <div class="d-text d-text2" style="padding-top: 80px;">\n' +
+                  '        <p style="font-size: 24px;">该作品涉嫌违规， 已强制停止访问。</p>\n' +
+                  "    </div>\n" +
+                  '    <div class="txt txt2" style="margin-top: 10px;text-align: center;">\n' +
+                  '        <p class="p1"><span>注：</span>建E全景为公共合成平台，请积极配合，营造良好的展示环境！</p>\n' +
+                  "    </div>\n" +
+                  "</div>"
+              );
+              layer.open({
+                type: 1,
+                title: "下架提醒",
+                content: $("#save_theft_tips"),
+                area: ["560px", "300px"],
+                closeBtn: false,
+                shadeClose: false,
+              });
+              removepano("krpanoSWFObject");
+              return false;
+            }
+            if (is_mobile > 0) {
+              $("p#btn_like").attr("data-val", liked);
+              $("p#btn_like .item-icon-like").attr(
+                "style",
+                'background-image: url("https://res1.justeasy.cn/images/vr-revision/zan' +
+                  liked +
+                  '-moblie.png");'
+              );
+              $("p#btn_like .item-title").find("#like_num").html(like_num);
+              if (
+                res.list.advert_open == "1" &&
+                res.list.advert.pic2_url != ""
+              ) {
+                if (_time > 0 && open_advert_h5 != "") {
+                  if (res.list.advert_type == "1") {
+                    var _html =
+                      `<div class="cont"><div class="vr-close222" style="z-index: 2147483647;"><span class="timesss" id="timesss">5s</span></div><div class="cover-gg">广告</div><a href="javascript:openAdvertlink('` +
+                      res.list.advert.link +
+                      `');" style="cursor:pointer;"><img src="` +
+                      res.list.advert.pic2_url +
+                      `"></a></div>`;
+                    $("#preview_advert").html(_html);
+                    setTimeout(function () {
+                      $("#preview_advert").show();
+                      downClearTime = setInterval(settime, 1000);
+                      $(document).on(
+                        "click",
+                        ".vr-gg-box .vr-close-btn",
+                        function (e) {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          $(".vr-gg-box").hide();
+                          clearInterval(downClearTime);
+                        }
+                      );
+                    }, _time * 1000 + 300);
+                  } else {
+                    $("#preview_advert").append(res.list.advert.pic2_url);
+                    setTimeout(function () {
+                      $("#preview_advert").show();
+                    }, _time * 1000 + 300);
+                    setTimeout(function () {
+                      $("#preview_advert").hide();
+                    }, _time * 1000 + 5000);
+                  }
+                } else {
+                  if (res.list.advert_type == "1") {
+                    var _html =
+                      `<div class="cont"><div class="vr-close222" style="z-index: 2147483647;"><span class="timesss" id="timesss">关闭</span></div><div class="cover-gg">广告</div><a href="javascript:openAdvertlink('` +
+                      res.list.advert.link +
+                      `');" style="cursor:pointer;"><img src="` +
+                      res.list.advert.pic2_url +
+                      `"></a></div>`;
+                    downClearTime = setInterval(function () {
+                      $("#preview_advert").html(_html);
+                      $("#preview_advert").show();
+                      $(document).on(
+                        "click",
+                        ".vr-gg-box .vr-close222",
+                        function (e) {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          $(".vr-gg-box").hide();
+                          clearInterval(downClearTime);
+                        }
+                      );
+                    }, 1000);
+                  } else {
+                    $("#preview_advert").append(res.list.advert.pic2_url);
+                    $("#preview_advert").show();
+                    setTimeout(function () {
+                      $("#preview_advert").hide();
+                    }, 5000);
+                  }
+                }
+              }
+            } else {
+              $("a#btn_like").attr("data-val", liked);
+              $("a#btn_like .item-icon-like").attr(
+                "style",
+                'background-image: url("https://res1.justeasy.cn/images/vr-revision/zan' +
+                  liked +
+                  '.png");'
+              );
+              $("a#btn_like").siblings("#like_num").html(like_num);
+              if (
+                res.list.advert_open == "1" &&
+                res.list.advert.pic1_url != ""
+              ) {
+                if (_time > 0 && open_advert_h5 != "") {
+                  if (res.list.advert_type == "1") {
+                    var _html =
+                      `<div class="cont"><div class="vr-close222" style="z-index: 2147483647;"><span class="timesss" id="timesss">5s</span></div><div class="cover-gg">广告</div><a href="javascript:openAdvertlink('` +
+                      res.list.advert.link +
+                      `');" style="cursor:pointer;"><img src="` +
+                      res.list.advert.pic1_url +
+                      `"></a></div>`;
+                    setTimeout(function () {
+                      $("#preview_advert").show();
+                      downClearTime = setInterval(settime, 1000);
+                      $(document).on(
+                        "click",
+                        ".vr-gg-box .vr-close-btn",
+                        function (e) {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          $(".vr-gg-box").hide();
+                          clearInterval(downClearTime);
+                        }
+                      );
+                    }, _time * 1000 + 300);
+                  } else {
+                    $("#preview_advert").append(res.list.advert.pic1_url);
+                    setTimeout(function () {
+                      $("#preview_advert").show();
+                    }, _time * 1000 + 300);
+                    setTimeout(function () {
+                      $("#preview_advert").hide();
+                    }, _time * 1000 + 5000);
+                  }
+                } else {
+                  if (res.list.advert_type == "1") {
+                    var _html =
+                      `<div class="cont"><div class="vr-close222" style="z-index: 2147483647;"><span class="timesss" id="timesss">关闭</span></div><div class="cover-gg">广告</div><a href="javascript:openAdvertlink('` +
+                      res.list.advert.link +
+                      `');" style="cursor:pointer;"><img src="` +
+                      res.list.advert.pic1_url +
+                      `"></a></div>`;
+                    downClearTime = setInterval(function () {
+                      $("#preview_advert").html(_html);
+                      $("#preview_advert").show();
+                      $(document).on(
+                        "click",
+                        ".vr-gg-box .vr-close222",
+                        function (e) {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          $(".vr-gg-box").hide();
+                          clearInterval(downClearTime);
+                        }
+                      );
+                    }, 1000);
+                  } else {
+                    $("#preview_advert").append(res.list.advert.pic1_url);
+                    $("#preview_advert").show();
+                    setTimeout(function () {
+                      $("#preview_advert").hide();
+                    }, 5000);
+                  }
+                }
+              }
+            }
+          }
+        },
+      });
+      function IsMobile() {
+        var userAgentInfo = navigator.userAgent.toLowerCase();
+        var Agents = [
+          "nokia",
+          "sony",
+          "ericsson",
+          "mot",
+          "samsung",
+          "htc",
+          "sgh",
+          "lg",
+          "sharp",
+          "sie-",
+          "philips",
+          "panasonic",
+          "alcatel",
+          "lenovo",
+          "iphone",
+          "iPhone",
+          "ipod",
+          "blackberry",
+          "meizu",
+          "android",
+          "netfront",
+          "symbian",
+          "ucweb",
+          "windowsce",
+          "palm",
+          "operamini",
+          "operamobi",
+          "openwave",
+          "nexusone",
+          "cldc",
+          "midp",
+          "wap",
+          "mobile",
+          "ipad",
+          "webview",
+          "Mobile",
+          "Android",
+          "iPhone",
+          "SymbianOS",
+          "Windows Phone",
+          "iPad",
+          "iPod",
+        ];
+        var flag = false;
+        for (var v = 0; v < Agents.length; v++) {
+          if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = true;
+            break;
+          }
+        }
+        return flag;
+      }
+      var app = G("referer");
+      var isbigscreen = G("isBigScreen");
+      var _fromapp = G("_fromapp");
+      var app_referer = 0;
+      var is_mobile;
+      if (IsMobile()) {
+        is_mobile = 200;
+        if ($.inArray(app, ["ios", "android"]) != -1) {
+          app_referer = 1;
+        }
+        if (_fromapp == "sjtt") {
+          app_referer = 2;
+        }
+      } else {
+        is_mobile = -200;
+        isbigscreen = 2;
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://res1.justeasy.cn/vr16/tour.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://res1.justeasy.cn/js/layer/layer-v3.1.1/layer.js?v=202300801601"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://res1.justeasy.cn/js/layer/layer-v3.1.1/theme/default/layer.css?v=3.1.2"
+      id="layuicss-layer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://res1.justeasy.cn/css/vip_vr.css?v=202300801601"
+    />
+    <link
+      rel="stylesheet"
+      href="https://res1.justeasy.cn/css/quanjing/vrSynthesis.css?v=202300801601"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://res1.justeasy.cn/min/b=css&amp;f=swiper.min.css,vr-preview.css,vr-preview-son.css,vr-edit.css,quanjing/vrEdit.css?v=2023008016012"
+    />
+  </head>
+  <body style="font-size: 12px">
+    <div
+      id="bodyclass"
+      style="
+        width: 100%;
+        height: 100%;
+        z-index: 1900;
+        position: absolute;
+        display: none;
+      "
+    >
+      <div id="passWordWarp"></div>
+      <div id="loading">
+        <div
+          id="loadingImg"
+          style="
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <img src="" />
+        </div>
+      </div>
+      <div
+        class="time-start"
+        style="cursor: pointer"
+        onclick="clearTimeout(timeClock);startPano();"
+      >
+        <span class="time" id="time"></span>s自动进入全景或点击直接进入
+      </div>
+    </div>
+    <audio
+      id="mp3"
+      src="https://vrmusic.justeasy.cn/uploads/music/202108/20210820133137_611f3e3974ae7.mp3"
+      loop="loop"
+      style="display: none"
+    ></audio>
+    <div id="pano" style="width: 100%; height: 100%">
+      <noscript>
+        <table style="width: 100%; height: 100%">
+          <tr style="vertical-align: middle">
+            <td>
+              <div style="text-align: center">
+                ERROR:<br />
+                <br />Javascript not activated<br /><br />
+              </div>
+            </td>
+          </tr>
+        </table>
+      </noscript>
+      <div
+        id="krpanoSWFObject"
+        tabindex="-1"
+        style="
+          position: relative;
+          overflow: hidden;
+          height: 100%;
+          line-height: normal;
+          font-weight: normal;
+          font-style: normal;
+          outline: 0px;
+          -webkit-tap-highlight-color: transparent;
+          width: 100%;
+          cursor: pointer;
+          pointer-events: auto;
+        "
+      >
+        <div
+          style="
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 1223px;
+            height: 1003px;
+            overflow: hidden;
+            user-select: none;
+            touch-action: none;
+            -webkit-tap-highlight-color: transparent;
+            cursor: default;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              pointer-events: none;
+            "
+          >
+            <canvas
+              width="1529"
+              height="1254"
+              style="
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 1223px;
+                height: 1003px;
+              "
+            ></canvas>
+          </div>
+          <div
+            style="
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              user-select: none;
+              transform-style: preserve-3d;
+            "
+          >
+            <div
+              style="
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                cursor: pointer;
+                pointer-events: auto;
+                background: none;
+                width: 0px;
+                height: 0px;
+                transform: translateZ(1e12px) translate(0px, 0px)
+                  translate(0px, 0px) rotate(0deg) translate(0px, 0px);
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                cursor: pointer;
+                pointer-events: auto;
+                background: none;
+                width: 0px;
+                height: 0px;
+                transform: translateZ(1e12px) translate(0px, 0px)
+                  translate(0px, 0px) rotate(0deg) translate(0px, 0px);
+              "
+            ></div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 0;
+                color: rgb(0, 0, 0);
+                text-size-adjust: none;
+                pointer-events: auto;
+                background: none;
+                cursor: pointer;
+                width: 86.4px;
+                height: 36px;
+                transform: translateZ(1e12px) translate(568px, 24px)
+                  translate(0px, -18px) rotate(0deg) translate(0px, 18px);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: -1px;
+                  left: -1px;
+                  transform-origin: 0px 0px;
+                  transform: scale(1);
+                  width: 100%;
+                  height: 100%;
+                  font-size: 12px;
+                  font-family: Arial;
+                  line-height: normal;
+                  color: rgb(0, 0, 0);
+                  pointer-events: none;
+                  visibility: visible;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    white-space: nowrap;
+                    border: 1px solid rgba(255, 255, 255, 0);
+                    background-color: rgba(0, 0, 0, 0);
+                    box-shadow: rgba(0, 0, 0, 0) 0px 0px 16px;
+                  "
+                >
+                  <div
+                    style="
+                      margin: 6px 10px 6px 10px;
+                      color: #ffffff;
+                      font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+                      font-size: 14px;
+                      font-size: 20px;
+                    "
+                  >
+                    Exit VR
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 0;
+                color: rgb(0, 0, 0);
+                text-size-adjust: none;
+                pointer-events: auto;
+                background: none;
+                cursor: pointer;
+                width: 108px;
+                height: 36px;
+                transform: translateZ(1e12px) translate(557.6px, 943.2px)
+                  translate(0px, 18px) rotate(0deg) translate(0px, -18px);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: -1px;
+                  left: -1px;
+                  transform-origin: 0px 0px;
+                  transform: scale(1);
+                  width: 100%;
+                  height: 100%;
+                  font-size: 12px;
+                  font-family: Arial;
+                  line-height: normal;
+                  color: rgb(0, 0, 0);
+                  pointer-events: none;
+                  visibility: visible;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    white-space: nowrap;
+                    border: 1px solid rgba(255, 255, 255, 0);
+                    background-color: rgba(0, 0, 0, 0);
+                    box-shadow: rgba(0, 0, 0, 0) 0px 0px 16px;
+                  "
+                >
+                  <div
+                    style="
+                      margin: 6px 10px 6px 10px;
+                      color: #ffffff;
+                      font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+                      font-size: 14px;
+                      font-size: 20px;
+                    "
+                  >
+                    VR Setup
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                position: absolute;
+                z-index: 3002;
+                overflow: hidden;
+                opacity: 1;
+                background: none;
+                cursor: default;
+                pointer-events: none;
+                border-style: solid;
+                border-color: rgb(0, 0, 0);
+                border-width: 0px;
+                border-radius: 0px;
+                width: 1223.2px;
+                height: 983.2px;
+                transform: translateZ(1e12px) translate(0px, -120px)
+                  translate(0px, -491.6px) rotate(0deg) translate(0px, 491.6px);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: pointer;
+                  pointer-events: auto;
+                  background-image: url('https://res1.justeasy.cn/vr16/skin/fullscreen-new.png');
+                  width: 36px;
+                  height: 36px;
+                  background-position: 0px 0px;
+                  background-size: 36px 36px;
+                  transform: translateZ(1e12px) translate(1167.2px, 617.6px)
+                    translate(18px, 18px) rotate(0deg) translate(-18px, -18px);
+                "
+              ></div>
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: pointer;
+                  pointer-events: auto;
+                  background-image: url('https://res1.justeasy.cn/vr16/skin/vr-new.png');
+                  width: 36px;
+                  height: 36px;
+                  background-position: 0px 0px;
+                  background-size: 36px 36px;
+                  transform: translateZ(1e12px) translate(1167.2px, 717.6px)
+                    translate(18px, 18px) rotate(0deg) translate(-18px, -18px);
+                "
+              ></div>
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: pointer;
+                  pointer-events: auto;
+                  background-image: url('https://res1.justeasy.cn/vr16/skin/music-new.png');
+                  width: 36px;
+                  height: 36px;
+                  background-position: 0px 0px;
+                  background-size: 36px 36px;
+                  transform: translateZ(1e12px) translate(1167.2px, 667.2px)
+                    translate(18px, 18px) rotate(0deg) translate(-18px, -18px);
+                "
+              ></div>
+              <div
+                style="
+                  display: none;
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: pointer;
+                  pointer-events: auto;
+                  background-image: url('https://res1.justeasy.cn/vr16/skin/gyro-new.png');
+                  width: 36px;
+                  height: 36px;
+                  background-position: 0px 0px;
+                  background-size: 36px 36px;
+                  transform: translateZ(1e12px) translate(1167.2px, 617.6px)
+                    translate(18px, 18px) rotate(0deg) translate(-18px, -18px);
+                "
+              ></div>
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3002;
+                  overflow: hidden;
+                  opacity: 1;
+                  cursor: default;
+                  pointer-events: none;
+                  background: none;
+                  border-style: solid;
+                  border-color: rgb(0, 0, 0);
+                  border-width: 0px;
+                  border-radius: 0px;
+                  width: 1223.2px;
+                  height: 983.2px;
+                  transform: translateZ(1e12px) translate(0px, 0px)
+                    translate(0px, 491.6px) rotate(0deg)
+                    translate(0px, -491.6px);
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    z-index: 3001;
+                    overflow: visible;
+                    opacity: 1;
+                    cursor: default;
+                    pointer-events: none;
+                    background: none;
+                    box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px 0px;
+                    border-style: solid;
+                    border-color: rgba(255, 255, 255, 0);
+                    border-width: 1px 0px;
+                    border-radius: 0px;
+                    width: 1223.2px;
+                    height: 983.2px;
+                    transform: translateZ(1e12px) translate(0px, 1002px)
+                      translate(0px, 491.6px) rotate(0deg)
+                      translate(0px, -491.6px);
+                  "
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      z-index: 3001;
+                      overflow: hidden;
+                      opacity: 1;
+                      cursor: default;
+                      pointer-events: none;
+                      background: none rgba(0, 0, 0, 0.2);
+                      border-style: solid;
+                      border-color: rgb(0, 0, 0);
+                      border-width: 0px;
+                      border-radius: 0px;
+                      width: 1223.2px;
+                      height: 983.2px;
+                      transform: translateZ(1e12px) translate(0px, 0px)
+                        translate(-611.6px, -491.6px) rotate(0deg)
+                        translate(611.6px, 491.6px);
+                    "
+                  >
+                    <div
+                      style="
+                        display: none;
+                        position: absolute;
+                        z-index: 3001;
+                        overflow: hidden;
+                        opacity: 1;
+                        cursor: default;
+                        pointer-events: none;
+                        background: none;
+                        border-style: solid;
+                        border-color: rgb(0, 0, 0);
+                        border-width: 0px;
+                        border-radius: 0px;
+                        width: 1223.2px;
+                        height: 983.2px;
+                        transform: translateZ(1e12px) translate(0px, 0px)
+                          translate(-611.6px, -491.6px) rotate(0deg)
+                          translate(611.6px, 491.6px);
+                      "
+                    >
+                      <div
+                        style="
+                          display: none;
+                          position: absolute;
+                          z-index: 3003;
+                          overflow: visible;
+                          opacity: 1;
+                          cursor: pointer;
+                          pointer-events: auto;
+                          background-image: url('https://res1.justeasy.cn/vr16/skin/vtourskin.png');
+                          width: 32px;
+                          height: 32px;
+                          background-position: 0px -32px;
+                          background-size: 64px 384px;
+                          transform: translateZ(1e12px) translate(4.8px, 23.2px)
+                            translate(-16px, 0px) rotate(0deg)
+                            translate(16px, 0px);
+                        "
+                      ></div>
+                      <div
+                        style="
+                          display: none;
+                          position: absolute;
+                          z-index: 3003;
+                          overflow: visible;
+                          opacity: 1;
+                          cursor: pointer;
+                          pointer-events: auto;
+                          background-image: url('https://res1.justeasy.cn/vr16/skin/vtourskin.png');
+                          width: 32px;
+                          height: 32px;
+                          background-position: -32px -32px;
+                          background-size: 64px 384px;
+                          transform: translateZ(1e12px)
+                            translate(1186.4px, 23.2px) translate(16px, 0px)
+                            rotate(0deg) translate(-16px, 0px);
+                        "
+                      ></div>
+                      <div
+                        style="
+                          display: none;
+                          position: absolute;
+                          z-index: 3001;
+                          overflow: visible;
+                          opacity: 1;
+                          cursor: default;
+                          pointer-events: none;
+                          background: none rgba(255, 255, 255, 0.25);
+                          border-style: solid;
+                          border-color: rgb(0, 0, 0);
+                          border-width: 0px;
+                          border-radius: 0px;
+                          width: 0px;
+                          height: 2.4px;
+                          transform: translateZ(1e12px) translate(0px, 76px)
+                            translate(0px, -1.2px) rotate(0deg)
+                            translate(0px, 1.2px);
+                        "
+                      ></div>
+                      <div
+                        style="
+                          position: absolute;
+                          z-index: 3002;
+                          overflow: visible;
+                          opacity: 1;
+                          cursor: pointer;
+                          pointer-events: auto;
+                          background: none;
+                          width: 620px;
+                          height: 78.4px;
+                          transform: translateZ(1e12px) translate(301.6px, 0px)
+                            translate(0px, -39.2px) rotate(0deg)
+                            translate(0px, 39.2px);
+                        "
+                      >
+                        <div
+                          style="
+                            position: absolute;
+                            z-index: 3001;
+                            overflow: visible;
+                            opacity: 1;
+                            cursor: pointer;
+                            pointer-events: auto;
+                            background-image: url('https://vrimg.justeasy.cn/pano/20230727/52-124127_64c1f5770507d.tiles/thumb.jpg');
+                            width: 60px;
+                            height: 60px;
+                            background-position: 0px 0px;
+                            background-size: 60px 60px;
+                            transform: translateZ(1e12px) translate(8px, 8px)
+                              translate(-30px, -30px) rotate(0deg)
+                              translate(30px, 30px);
+                          "
+                        >
+                          <div
+                            style="
+                              position: absolute;
+                              z-index: 3001;
+                              overflow: visible;
+                              opacity: 1;
+                              cursor: default;
+                              pointer-events: none;
+                              color: rgb(0, 0, 0);
+                              text-size-adjust: none;
+                              width: 60px;
+                              height: 28px;
+                              transform: translateZ(1e12px)
+                                translate(0px, 27.2px) translate(0px, 14px)
+                                rotate(0deg) translate(0px, -14px);
+                              background: none;
+                            "
+                          >
+                            <div
+                              style="
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                transform-origin: 0px 0px;
+                                transform: scale(1);
+                                width: 100%;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: Arial;
+                                line-height: normal;
+                                color: rgb(0, 0, 0);
+                                pointer-events: none;
+                                visibility: visible;
+                              "
+                            >
+                              <div
+                                style="
+                                  position: absolute;
+                                  width: 60px;
+                                  overflow: hidden;
+                                  text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;
+                                "
+                              >
+                                <div
+                                  style="
+                                    margin: 2px 2px 2px 2px;
+                                    color: #ffffff;
+                                    font-family: 微软雅黑, Arial, Helvetica,
+                                      sans-serif;
+                                    font-size: 14px;
+                                    text-align: center;
+                                    font-size: 10px;
+                                  "
+                                >
+                                  入户门厅
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            style="
+                              position: absolute;
+                              z-index: 3001;
+                              overflow: visible;
+                              opacity: 1;
+                              background: none;
+                              cursor: default;
+                              pointer-events: none;
+                              border-style: solid;
+                              border-color: rgba(239, 120, 0, 0.8);
+                              border-width: 4px;
+                              border-radius: 3px;
+                              width: 56px;
+                              height: 56px;
+                              transform: translateZ(1e12px)
+                                translate(-2.4px, -2.4px)
+                                translate(-28px, -28px) rotate(0deg)
+                                translate(28px, 28px);
+                            "
+                          ></div>
+                        </div>
+                        <div
+                          style="
+                            position: absolute;
+                            z-index: 3001;
+                            overflow: visible;
+                            opacity: 1;
+                            cursor: pointer;
+                            pointer-events: auto;
+                            background-image: url('https://vrimg.justeasy.cn/pano/20230816/42-104212_64dc3784a52ab.tiles/thumb.jpg');
+                            width: 60px;
+                            height: 60px;
+                            background-position: 0px 0px;
+                            background-size: 60px 60px;
+                            transform: translateZ(1e12px) translate(76px, 8px)
+                              translate(-30px, -30px) rotate(0deg)
+                              translate(30px, 30px);
+                          "
+                        >
+                          <div
+                            style="
+                              position: absolute;
+                              z-index: 3001;
+                              overflow: visible;
+                              opacity: 1;
+                              cursor: default;
+                              pointer-events: none;
+                              color: rgb(0, 0, 0);
+                              text-size-adjust: none;
+                              width: 60px;
+                              height: 28px;
+                              transform: translateZ(1e12px)
+                                translate(0px, 27.2px) translate(0px, 14px)
+                                rotate(0deg) translate(0px, -14px);
+                              background: none;
+                            "
+                          >
+                            <div
+                              style="
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                transform-origin: 0px 0px;
+                                transform: scale(1);
+                                width: 100%;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: Arial;
+                                line-height: normal;
+                                color: rgb(0, 0, 0);
+                                pointer-events: none;
+                                visibility: visible;
+                              "
+                            >
+                              <div
+                                style="
+                                  position: absolute;
+                                  width: 60px;
+                                  overflow: hidden;
+                                  text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;
+                                "
+                              >
+                                <div
+                                  style="
+                                    margin: 2px 2px 2px 2px;
+                                    color: #ffffff;
+                                    font-family: 微软雅黑, Arial, Helvetica,
+                                      sans-serif;
+                                    font-size: 14px;
+                                    text-align: center;
+                                    font-size: 10px;
+                                  "
+                                >
+                                  客厅
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style="
+                            position: absolute;
+                            z-index: 3001;
+                            overflow: visible;
+                            opacity: 1;
+                            cursor: pointer;
+                            pointer-events: auto;
+                            background-image: url('https://vrimg.justeasy.cn/pano/20230816/42-104252_64dc37ac497cb.tiles/thumb.jpg');
+                            width: 60px;
+                            height: 60px;
+                            background-position: 0px 0px;
+                            background-size: 60px 60px;
+                            transform: translateZ(1e12px) translate(144px, 8px)
+                              translate(-30px, -30px) rotate(0deg)
+                              translate(30px, 30px);
+                          "
+                        >
+                          <div
+                            style="
+                              position: absolute;
+                              z-index: 3001;
+                              overflow: visible;
+                              opacity: 1;
+                              cursor: default;
+                              pointer-events: none;
+                              color: rgb(0, 0, 0);
+                              text-size-adjust: none;
+                              width: 60px;
+                              height: 52px;
+                              transform: translateZ(1e12px)
+                                translate(0px, 3.2px) translate(0px, 26px)
+                                rotate(0deg) translate(0px, -26px);
+                              background: none;
+                            "
+                          >
+                            <div
+                              style="
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                transform-origin: 0px 0px;
+                                transform: scale(1);
+                                width: 100%;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: Arial;
+                                line-height: normal;
+                                color: rgb(0, 0, 0);
+                                pointer-events: none;
+                                visibility: visible;
+                              "
+                            >
+                              <div
+                                style="
+                                  position: absolute;
+                                  width: 60px;
+                                  overflow: hidden;
+                                  text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;
+                                "
+                              >
+                                <div
+                                  style="
+                                    margin: 2px 2px 2px 2px;
+                                    color: #ffffff;
+                                    font-family: 微软雅黑, Arial, Helvetica,
+                                      sans-serif;
+                                    font-size: 14px;
+                                    text-align: center;
+                                    font-size: 10px;
+                                  "
+                                >
+                                  餐厅厨房区域
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style="
+                            position: absolute;
+                            z-index: 3001;
+                            overflow: visible;
+                            opacity: 1;
+                            cursor: pointer;
+                            pointer-events: auto;
+                            background-image: url('https://vrimg.justeasy.cn/pano/20230727/52-124122_64c1f572a9d2e.tiles/thumb.jpg');
+                            width: 60px;
+                            height: 60px;
+                            background-position: 0px 0px;
+                            background-size: 60px 60px;
+                            transform: translateZ(1e12px) translate(212px, 8px)
+                              translate(-30px, -30px) rotate(0deg)
+                              translate(30px, 30px);
+                          "
+                        >
+                          <div
+                            style="
+                              position: absolute;
+                              z-index: 3001;
+                              overflow: visible;
+                              opacity: 1;
+                              cursor: default;
+                              pointer-events: none;
+                              color: rgb(0, 0, 0);
+                              text-size-adjust: none;
+                              width: 60px;
+                              height: 28px;
+                              transform: translateZ(1e12px)
+                                translate(0px, 27.2px) translate(0px, 14px)
+                                rotate(0deg) translate(0px, -14px);
+                              background: none;
+                            "
+                          >
+                            <div
+                              style="
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                transform-origin: 0px 0px;
+                                transform: scale(1);
+                                width: 100%;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: Arial;
+                                line-height: normal;
+                                color: rgb(0, 0, 0);
+                                pointer-events: none;
+                                visibility: visible;
+                              "
+                            >
+                              <div
+                                style="
+                                  position: absolute;
+                                  width: 60px;
+                                  overflow: hidden;
+                                  text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;
+                                "
+                              >
+                                <div
+                                  style="
+                                    margin: 2px 2px 2px 2px;
+                                    color: #ffffff;
+                                    font-family: 微软雅黑, Arial, Helvetica,
+                                      sans-serif;
+                                    font-size: 14px;
+                                    text-align: center;
+                                    font-size: 10px;
+                                  "
+                                >
+                                  品茗区
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style="
+                            position: absolute;
+                            z-index: 3001;
+                            overflow: visible;
+                            opacity: 1;
+                            cursor: pointer;
+                            pointer-events: auto;
+                            background-image: url('https://vrimg.justeasy.cn/pano/20230729/52-162225_64c4cc412a806.tiles/thumb.jpg');
+                            width: 60px;
+                            height: 60px;
+                            background-position: 0px 0px;
+                            background-size: 60px 60px;
+                            transform: translateZ(1e12px) translate(280px, 8px)
+                              translate(-30px, -30px) rotate(0deg)
+                              translate(30px, 30px);
+                          "
+                        >
+                          <div
+                            style="
+                              position: absolute;
+                              z-index: 3001;
+                              overflow: visible;
+                              opacity: 1;
+                              cursor: default;
+                              pointer-events: none;
+                              color: rgb(0, 0, 0);
+                              text-size-adjust: none;
+                              width: 60px;
+                              height: 28px;
+                              transform: translateZ(1e12px)
+                                translate(0px, 27.2px) translate(0px, 14px)
+                                rotate(0deg) translate(0px, -14px);
+                              background: none;
+                            "
+                          >
+                            <div
+                              style="
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                transform-origin: 0px 0px;
+                                transform: scale(1);
+                                width: 100%;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: Arial;
+                                line-height: normal;
+                                color: rgb(0, 0, 0);
+                                pointer-events: none;
+                                visibility: visible;
+                              "
+                            >
+                              <div
+                                style="
+                                  position: absolute;
+                                  width: 60px;
+                                  overflow: hidden;
+                                  text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;
+                                "
+                              >
+                                <div
+                                  style="
+                                    margin: 2px 2px 2px 2px;
+                                    color: #ffffff;
+                                    font-family: 微软雅黑, Arial, Helvetica,
+                                      sans-serif;
+                                    font-size: 14px;
+                                    text-align: center;
+                                    font-size: 10px;
+                                  "
+                                >
+                                  主卧室1
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style="
+                            position: absolute;
+                            z-index: 3001;
+                            overflow: visible;
+                            opacity: 1;
+                            cursor: pointer;
+                            pointer-events: auto;
+                            background-image: url('https://vrimg.justeasy.cn/pano/20230809/32-092205_64d2ea3dc326b.tiles/thumb.jpg');
+                            width: 60px;
+                            height: 60px;
+                            background-position: 0px 0px;
+                            background-size: 60px 60px;
+                            transform: translateZ(1e12px) translate(348px, 8px)
+                              translate(-30px, -30px) rotate(0deg)
+                              translate(30px, 30px);
+                          "
+                        >
+                          <div
+                            style="
+                              position: absolute;
+                              z-index: 3001;
+                              overflow: visible;
+                              opacity: 1;
+                              cursor: default;
+                              pointer-events: none;
+                              color: rgb(0, 0, 0);
+                              text-size-adjust: none;
+                              width: 60px;
+                              height: 28px;
+                              transform: translateZ(1e12px)
+                                translate(0px, 27.2px) translate(0px, 14px)
+                                rotate(0deg) translate(0px, -14px);
+                              background: none;
+                            "
+                          >
+                            <div
+                              style="
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                transform-origin: 0px 0px;
+                                transform: scale(1);
+                                width: 100%;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: Arial;
+                                line-height: normal;
+                                color: rgb(0, 0, 0);
+                                pointer-events: none;
+                                visibility: visible;
+                              "
+                            >
+                              <div
+                                style="
+                                  position: absolute;
+                                  width: 60px;
+                                  overflow: hidden;
+                                  text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;
+                                "
+                              >
+                                <div
+                                  style="
+                                    margin: 2px 2px 2px 2px;
+                                    color: #ffffff;
+                                    font-family: 微软雅黑, Arial, Helvetica,
+                                      sans-serif;
+                                    font-size: 14px;
+                                    text-align: center;
+                                    font-size: 10px;
+                                  "
+                                >
+                                  主卧室2
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style="
+                            position: absolute;
+                            z-index: 3001;
+                            overflow: visible;
+                            opacity: 1;
+                            cursor: pointer;
+                            pointer-events: auto;
+                            background-image: url('https://vrimg.justeasy.cn/pano/20230808/32-094245_64d19d95dd76c.tiles/thumb.jpg');
+                            width: 60px;
+                            height: 60px;
+                            background-position: 0px 0px;
+                            background-size: 60px 60px;
+                            transform: translateZ(1e12px) translate(416px, 8px)
+                              translate(-30px, -30px) rotate(0deg)
+                              translate(30px, 30px);
+                          "
+                        >
+                          <div
+                            style="
+                              position: absolute;
+                              z-index: 3001;
+                              overflow: visible;
+                              opacity: 1;
+                              cursor: default;
+                              pointer-events: none;
+                              color: rgb(0, 0, 0);
+                              text-size-adjust: none;
+                              width: 60px;
+                              height: 28px;
+                              transform: translateZ(1e12px)
+                                translate(0px, 27.2px) translate(0px, 14px)
+                                rotate(0deg) translate(0px, -14px);
+                              background: none;
+                            "
+                          >
+                            <div
+                              style="
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                transform-origin: 0px 0px;
+                                transform: scale(1);
+                                width: 100%;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: Arial;
+                                line-height: normal;
+                                color: rgb(0, 0, 0);
+                                pointer-events: none;
+                                visibility: visible;
+                              "
+                            >
+                              <div
+                                style="
+                                  position: absolute;
+                                  width: 60px;
+                                  overflow: hidden;
+                                  text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;
+                                "
+                              >
+                                <div
+                                  style="
+                                    margin: 2px 2px 2px 2px;
+                                    color: #ffffff;
+                                    font-family: 微软雅黑, Arial, Helvetica,
+                                      sans-serif;
+                                    font-size: 14px;
+                                    text-align: center;
+                                    font-size: 10px;
+                                  "
+                                >
+                                  次卧一
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style="
+                            position: absolute;
+                            z-index: 3001;
+                            overflow: visible;
+                            opacity: 1;
+                            cursor: pointer;
+                            pointer-events: auto;
+                            background-image: url('https://vrimg.justeasy.cn/pano/20230808/32-094320_64d19db8b5ee6.tiles/thumb.jpg');
+                            width: 60px;
+                            height: 60px;
+                            background-position: 0px 0px;
+                            background-size: 60px 60px;
+                            transform: translateZ(1e12px) translate(484px, 8px)
+                              translate(-30px, -30px) rotate(0deg)
+                              translate(30px, 30px);
+                          "
+                        >
+                          <div
+                            style="
+                              position: absolute;
+                              z-index: 3001;
+                              overflow: visible;
+                              opacity: 1;
+                              cursor: default;
+                              pointer-events: none;
+                              color: rgb(0, 0, 0);
+                              text-size-adjust: none;
+                              width: 60px;
+                              height: 28px;
+                              transform: translateZ(1e12px)
+                                translate(0px, 27.2px) translate(0px, 14px)
+                                rotate(0deg) translate(0px, -14px);
+                              background: none;
+                            "
+                          >
+                            <div
+                              style="
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                transform-origin: 0px 0px;
+                                transform: scale(1);
+                                width: 100%;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: Arial;
+                                line-height: normal;
+                                color: rgb(0, 0, 0);
+                                pointer-events: none;
+                                visibility: visible;
+                              "
+                            >
+                              <div
+                                style="
+                                  position: absolute;
+                                  width: 60px;
+                                  overflow: hidden;
+                                  text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;
+                                "
+                              >
+                                <div
+                                  style="
+                                    margin: 2px 2px 2px 2px;
+                                    color: #ffffff;
+                                    font-family: 微软雅黑, Arial, Helvetica,
+                                      sans-serif;
+                                    font-size: 14px;
+                                    text-align: center;
+                                    font-size: 10px;
+                                  "
+                                >
+                                  书房一
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style="
+                            position: absolute;
+                            z-index: 3001;
+                            overflow: visible;
+                            opacity: 1;
+                            cursor: pointer;
+                            pointer-events: auto;
+                            background-image: url('https://vrimg.justeasy.cn/pano/20230729/52-144620_64c4b5bcb1248.tiles/thumb.jpg');
+                            width: 60px;
+                            height: 60px;
+                            background-position: 0px 0px;
+                            background-size: 60px 60px;
+                            transform: translateZ(1e12px) translate(552px, 8px)
+                              translate(-30px, -30px) rotate(0deg)
+                              translate(30px, 30px);
+                          "
+                        >
+                          <div
+                            style="
+                              position: absolute;
+                              z-index: 3001;
+                              overflow: visible;
+                              opacity: 1;
+                              cursor: default;
+                              pointer-events: none;
+                              color: rgb(0, 0, 0);
+                              text-size-adjust: none;
+                              width: 60px;
+                              height: 28px;
+                              transform: translateZ(1e12px)
+                                translate(0px, 27.2px) translate(0px, 14px)
+                                rotate(0deg) translate(0px, -14px);
+                              background: none;
+                            "
+                          >
+                            <div
+                              style="
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                transform-origin: 0px 0px;
+                                transform: scale(1);
+                                width: 100%;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: Arial;
+                                line-height: normal;
+                                color: rgb(0, 0, 0);
+                                pointer-events: none;
+                                visibility: visible;
+                              "
+                            >
+                              <div
+                                style="
+                                  position: absolute;
+                                  width: 60px;
+                                  overflow: hidden;
+                                  text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;
+                                "
+                              >
+                                <div
+                                  style="
+                                    margin: 2px 2px 2px 2px;
+                                    color: #ffffff;
+                                    font-family: 微软雅黑, Arial, Helvetica,
+                                      sans-serif;
+                                    font-size: 14px;
+                                    text-align: center;
+                                    font-size: 10px;
+                                  "
+                                >
+                                  客卧二
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3003;
+                  overflow: hidden;
+                  opacity: 1;
+                  cursor: default;
+                  pointer-events: none;
+                  background: none;
+                  border-style: solid;
+                  border-color: rgb(0, 0, 0);
+                  border-width: 0px;
+                  border-radius: 0px;
+                  width: 1223.2px;
+                  height: 100px;
+                  transform: translateZ(1e12px) translate(0px, 883.2px)
+                    translate(0px, 50px) rotate(0deg) translate(0px, -50px);
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    z-index: 3001;
+                    overflow: visible;
+                    opacity: 1;
+                    cursor: default;
+                    pointer-events: none;
+                    background: none;
+                    box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px 0px;
+                    border-style: solid;
+                    border-color: rgba(255, 255, 255, 0);
+                    border-width: 1px 0px;
+                    border-radius: 0px;
+                    width: 1223.2px;
+                    height: 40px;
+                    transform: translateZ(1e12px) translate(0px, -0.8px)
+                      translate(0px, 20px) rotate(0deg) translate(0px, -20px);
+                  "
+                ></div>
+              </div>
+              <div
+                style="
+                  display: none;
+                  position: absolute;
+                  z-index: 3004;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: default;
+                  pointer-events: none;
+                  background: none;
+                  border-style: solid;
+                  border-color: rgb(0, 0, 0);
+                  border-width: 0px;
+                  border-radius: 0px;
+                  width: 1223.2px;
+                  height: 40px;
+                  transform: translateZ(1e12px) translate(0px, 883.2px)
+                    translate(0px, 20px) rotate(0deg) translate(0px, -20px);
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    z-index: 3001;
+                    overflow: visible;
+                    opacity: 1;
+                    cursor: default;
+                    pointer-events: none;
+                    background: none;
+                    border-style: solid;
+                    border-color: rgb(0, 0, 0);
+                    border-width: 0px;
+                    border-radius: 0px;
+                    width: 1223.2px;
+                    height: 40px;
+                    transform: translateZ(1e12px) translate(0px, 0px)
+                      translate(-611.6px, 20px) rotate(0deg)
+                      translate(611.6px, -20px);
+                  "
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      z-index: 3001;
+                      overflow: visible;
+                      opacity: 1;
+                      cursor: pointer;
+                      pointer-events: auto;
+                      background-image: url('https://res1.justeasy.cn/vr16/skin/scene-new.png');
+                      width: 36px;
+                      height: 36px;
+                      background-position: 0px 0px;
+                      background-size: 36px 36px;
+                      transform: translateZ(1e12px) translate(40px, 7.2px)
+                        translate(-18px, 0px) rotate(0deg) translate(18px, 0px);
+                    "
+                  ></div>
+                  <div
+                    style="
+                      position: absolute;
+                      z-index: 3001;
+                      overflow: visible;
+                      opacity: 1;
+                      cursor: default;
+                      pointer-events: none;
+                      background: none;
+                      border-style: solid;
+                      border-color: rgb(0, 0, 0);
+                      border-width: 0px;
+                      border-radius: 5px;
+                      width: 70.4px;
+                      height: 28px;
+                      transform: translateZ(1e12px) translate(22.4px, 46.4px)
+                        translate(-35.2px, 0px) rotate(0deg)
+                        translate(35.2px, 0px);
+                    "
+                  >
+                    <div
+                      style="
+                        position: absolute;
+                        z-index: 3001;
+                        overflow: visible;
+                        opacity: 1;
+                        cursor: pointer;
+                        pointer-events: auto;
+                        color: rgb(0, 0, 0);
+                        text-size-adjust: none;
+                        background: none;
+                        width: 70.4px;
+                        height: 30.4px;
+                        transform: translateZ(1e12px) translate(0px, 0px)
+                          translate(-35.2px, -15.2px) rotate(0deg)
+                          translate(35.2px, 15.2px);
+                      "
+                    >
+                      <div
+                        style="
+                          position: absolute;
+                          top: 0px;
+                          left: 0px;
+                          transform-origin: 0px 0px;
+                          transform: scale(1);
+                          width: 100%;
+                          height: 100%;
+                          font-size: 12px;
+                          font-family: Arial;
+                          line-height: normal;
+                          color: rgb(0, 0, 0);
+                          pointer-events: none;
+                          visibility: visible;
+                        "
+                      >
+                        <div style="position: absolute; white-space: nowrap">
+                          <div
+                            style="
+                              margin: 3px 7px 3px 7px;
+                              font-size: 14px;
+                              color: #ffffff;
+                              font-family: 微软雅黑, Arial, Helvetica,
+                                sans-serif;
+                            "
+                          >
+                            场景选择
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: default;
+                  pointer-events: none;
+                  color: rgb(0, 0, 0);
+                  text-size-adjust: none;
+                  background: none;
+                  width: 86.4px;
+                  height: 28px;
+                  transform: translateZ(1e12px) translate(573.6px, 472.8px)
+                    translate(0px, 0px) rotate(0deg) translate(0px, 0px);
+                  display: none;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    transform-origin: 0px 0px;
+                    transform: scale(1);
+                    width: 100%;
+                    height: 100%;
+                    font-size: 12px;
+                    font-family: Arial;
+                    line-height: normal;
+                    color: rgb(0, 0, 0);
+                    pointer-events: none;
+                    visibility: visible;
+                  "
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      white-space: nowrap;
+                      text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;
+                    "
+                  >
+                    <div
+                      style="
+                        margin: 2px 2px 2px 2px;
+                        color: #ffffff;
+                        font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+                        font-size: 14px;
+                        text-align: center;
+                        font-style: italic;
+                        font-size: 22px;
+                      "
+                    >
+                      加载中...
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="
+                  display: none;
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 0;
+                  cursor: default;
+                  pointer-events: none;
+                  background-image: url('https://res1.justeasy.cn/vr16/skin/vtourskin.png');
+                  width: 64px;
+                  height: 64px;
+                  background-position: -64px -384px;
+                  background-size: 128px 768px;
+                  transform: translateZ(1e12px) translate(580px, 460.8px)
+                    translate(0px, 0px) rotate(0deg) translate(0px, 0px);
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                position: absolute;
+                z-index: 3003;
+                overflow: visible;
+                opacity: 0;
+                background: none;
+                cursor: default;
+                pointer-events: none;
+                border-style: solid;
+                border-color: rgb(0, 0, 0);
+                border-width: 0px;
+                border-radius: 0px;
+                width: 40px;
+                height: 1003.2px;
+                transform: translateZ(1e12px) translate(-50.4px, 0px)
+                  translate(-20px, -501.6px) rotate(0deg)
+                  translate(20px, 501.6px);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: default;
+                  pointer-events: none;
+                  background-image: url('https://res1.justeasy.cn/vr16/skin/vtourskin.png');
+                  width: 32px;
+                  height: 32px;
+                  background-position: 0px -32px;
+                  background-size: 64px 384px;
+                  transform: translateZ(1e12px) translate(4px, 485.6px)
+                    translate(0px, 0px) rotate(0deg) translate(0px, 0px);
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                position: absolute;
+                z-index: 3003;
+                overflow: visible;
+                opacity: 0;
+                background: none;
+                cursor: default;
+                pointer-events: none;
+                border-style: solid;
+                border-color: rgb(0, 0, 0);
+                border-width: 0px;
+                border-radius: 0px;
+                width: 40px;
+                height: 1003.2px;
+                transform: translateZ(1e12px) translate(1232.8px, 0px)
+                  translate(20px, -501.6px) rotate(0deg)
+                  translate(-20px, 501.6px);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: default;
+                  pointer-events: none;
+                  background-image: url('https://res1.justeasy.cn/vr16/skin/vtourskin.png');
+                  width: 32px;
+                  height: 32px;
+                  background-position: -32px -32px;
+                  background-size: 64px 384px;
+                  transform: translateZ(1e12px) translate(4px, 485.6px)
+                    translate(0px, 0px) rotate(0deg) translate(0px, 0px);
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                cursor: default;
+                pointer-events: none;
+              "
+            ></div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 0;
+                cursor: pointer;
+                pointer-events: auto;
+                background-image: url('https://res1.justeasy.cn/vr16/skin/vtourskin.png');
+                width: 64px;
+                height: 64px;
+                background-position: 0px -640px;
+                background-size: 128px 768px;
+                transform: translateZ(1e12px) translate(587.2px, 477.6px)
+                  translate(-32px, -32px) scale(0.75, 0.75)
+                  translate(32px, 32px) translate(0px, 0px) rotate(0deg)
+                  translate(0px, 0px);
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                background: none;
+                cursor: default;
+                pointer-events: none;
+                border-style: solid;
+                border-color: rgb(0, 0, 0);
+                border-width: 0px;
+                border-radius: 0px;
+                width: 300px;
+                height: 0px;
+                transform: translateZ(1e12px) translate(0px, 0px)
+                  translate(-150px, 0px) rotate(0deg) translate(150px, 0px);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: hidden;
+                  opacity: 1;
+                  cursor: default;
+                  pointer-events: none;
+                  background: none;
+                  border-style: solid;
+                  border-color: rgb(0, 0, 0);
+                  border-width: 0px;
+                  border-radius: 0px;
+                  width: 64.8px;
+                  height: 64.8px;
+                  transform: translateZ(1e12px) translate(20px, 18.4px)
+                    translate(-32.4px, -32.4px) rotate(0deg)
+                    translate(32.4px, 32.4px);
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    z-index: 3001;
+                    overflow: visible;
+                    opacity: 1;
+                    cursor: default;
+                    pointer-events: none;
+                    background-image: url('https://vrimg.justeasy.cn/pano/20230727/logo/52-513588_64c1f7fb1f9fb_150.jpg');
+                    width: 64.8px;
+                    height: 64.8px;
+                    background-position: 0px 0px;
+                    background-size: 64.8px 64.8px;
+                    transform: translateZ(1e12px) translate(0px, 0px)
+                      translate(-32.4px, -32.4px) rotate(0deg)
+                      translate(32.4px, 32.4px);
+                  "
+                ></div>
+              </div>
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: default;
+                  pointer-events: none;
+                  color: rgb(0, 0, 0);
+                  text-size-adjust: none;
+                  background: none;
+                  width: 210.4px;
+                  height: 28px;
+                  transform: translateZ(1e12px) translate(95.2px, 15.2px)
+                    translate(-105.2px, -14px) rotate(0deg)
+                    translate(105.2px, 14px);
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    transform-origin: 0px 0px;
+                    transform: scale(1);
+                    width: 100%;
+                    height: 100%;
+                    font-size: 12px;
+                    font-family: Arial;
+                    line-height: normal;
+                    color: rgb(0, 0, 0);
+                    pointer-events: none;
+                    visibility: visible;
+                  "
+                >
+                  <div style="position: absolute; white-space: nowrap">
+                    <div
+                      style="
+                        margin: 2px 2px 2px 2px;
+                        font-size: 18px;
+                        color: #ffffff;
+                        font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+                      "
+                    >
+                      aa
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: default;
+                  pointer-events: none;
+                  background-image: url('https://res1.justeasy.cn/vr16/skin/eye.png');
+                  width: 18.4px;
+                  height: 12px;
+                  background-position: 0px 0px;
+                  background-size: 18.4px 12px;
+                  transform: translateZ(1e12px) translate(95.2px, 58.4px)
+                    translate(-9.2px, -6px) rotate(0deg) translate(9.2px, 6px);
+                "
+              ></div>
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 1;
+                  cursor: default;
+                  pointer-events: none;
+                  color: rgb(0, 0, 0);
+                  text-size-adjust: none;
+                  background: none;
+                  width: 32px;
+                  height: 28px;
+                  transform: translateZ(1e12px) translate(115.2px, 50.4px)
+                    translate(-16px, -14px) rotate(0deg) translate(16px, 14px);
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    transform-origin: 0px 0px;
+                    transform: scale(1);
+                    width: 100%;
+                    height: 100%;
+                    font-size: 12px;
+                    font-family: Arial;
+                    line-height: normal;
+                    color: rgb(0, 0, 0);
+                    pointer-events: none;
+                    visibility: visible;
+                  "
+                >
+                  <div style="position: absolute; white-space: nowrap">
+                    <div
+                      style="
+                        margin: 2px 2px 2px 2px;
+                        font-size: 16px;
+                        color: #ffffff;
+                        font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+                      "
+                    >
+                      224
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="
+                  position: absolute;
+                  z-index: 3001;
+                  overflow: visible;
+                  opacity: 0.6;
+                  cursor: default;
+                  pointer-events: none;
+                  background-image: url('https://res1.justeasy.cn/vr16/skin/logo.png');
+                  width: 180px;
+                  height: 44.8px;
+                  background-position: 0px 0px;
+                  background-size: 180px 44.8px;
+                  transform: translateZ(1e12px) translate(20px, 84.8px)
+                    translate(-90px, -22.4px) rotate(0deg)
+                    translate(90px, 22.4px);
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 0;
+                color: rgb(0, 0, 0);
+                text-size-adjust: none;
+                pointer-events: auto;
+                background: none;
+                cursor: pointer;
+                width: 66.4px;
+                height: 16.8px;
+                transform: translateZ(1e12px) translate(1086.4px, 976px)
+                  translate(33.2px, 8.4px) rotate(0deg)
+                  translate(-33.2px, -8.4px);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: 0px;
+                  left: 0px;
+                  transform-origin: 0px 0px;
+                  transform: scale(1);
+                  width: 100%;
+                  height: 100%;
+                  font-size: 12px;
+                  font-family: Arial;
+                  line-height: normal;
+                  color: rgb(0, 0, 0);
+                  pointer-events: none;
+                  visibility: visible;
+                "
+              >
+                <div style="position: absolute; white-space: nowrap">
+                  <div style="margin: 2px 2px 2px 2px; color: #dddddd">
+                    技术支持：建E网
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                cursor: pointer;
+                pointer-events: auto;
+              "
+            ></div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                cursor: pointer;
+                pointer-events: auto;
+              "
+            ></div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 0.3;
+                cursor: default;
+                pointer-events: none;
+              "
+            ></div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                cursor: pointer;
+                pointer-events: auto;
+              "
+            ></div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                cursor: pointer;
+                pointer-events: auto;
+              "
+            ></div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                cursor: pointer;
+                pointer-events: auto;
+              "
+            ></div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                cursor: pointer;
+                pointer-events: auto;
+              "
+            ></div>
+            <div
+              style="
+                display: none;
+                position: absolute;
+                z-index: 3001;
+                overflow: visible;
+                opacity: 1;
+                cursor: pointer;
+                pointer-events: auto;
+              "
+            ></div>
+          </div>
+        </div>
+        <div
+          style="
+            position: absolute;
+            left: 0px;
+            bottom: -1px;
+            width: 100%;
+            height: 156px;
+            overflow: hidden;
+            display: none;
+            transform: translateZ(2e12px);
+            z-index: 999999999;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              background-color: rgb(0, 0, 0);
+              box-sizing: border-box;
+              border-top: 1px solid rgba(255, 255, 255, 0.8);
+              border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+              opacity: 0.6;
+            "
+          ></div>
+          <pre
+            style="
+              font-family: 'Courier New';
+              font-size: 11px;
+              position: absolute;
+              left: 5px;
+              top: 0px;
+              margin: 6px 0px;
+              padding: 0px 16px 0px 0px;
+              background: none;
+              line-height: 1.2;
+              border: 0px;
+              border-radius: 0px;
+              width: 100%;
+              height: 146px;
+              overflow: hidden auto;
+              display: block;
+              text-align: left;
+              white-space: pre-line;
+              color: rgb(255, 255, 255);
+              cursor: text;
+            "
+          >INFO: krpano 1.19-pr16 (build 2018-04-04)
+INFO: HTML5/Desktop - Chrome 115.0 - WebGL
+INFO: Registered to: Joseph Fouts Photography
+<span style="color:#FFFF00;">ERROR: layer[skin_layer].layer[skin_btn_fs] - style not found: skin_custom</span> 
+<span style="color:#FFFF00;">ERROR: layer[skin_layer].layer[skin_btn_vr] - style not found: skin_custom</span> 
+<span style="color:#FFFF00;">ERROR: layer[skin_layer].layer[skin_btn_sound] - style not found: skin_custom</span> 
+<span style="color:#AACCFF;">WARNING: Unknown action: bombtimer</span> </pre>
+          <div
+            style="
+              position: absolute;
+              right: 0px;
+              top: 6px;
+              padding: 0px 4px;
+              height: 30px;
+              user-select: none;
+              cursor: pointer;
+              -webkit-tap-highlight-color: transparent;
+              font-family: 'Courier New';
+              font-size: 10px;
+              color: rgb(255, 255, 255);
+            "
+          >
+            CLOSE
+          </div>
+          <div
+            style="
+              position: absolute;
+              right: 2px;
+              bottom: 4px;
+              padding: 0px 4px 4px;
+              height: 14px;
+              user-select: none;
+              cursor: pointer;
+              -webkit-tap-highlight-color: transparent;
+              font-family: 'Courier New';
+              font-size: 14px;
+              color: rgb(170, 170, 170);
+            "
+          >
+            ⇵
+          </div>
+          <div
+            style="
+              position: absolute;
+              right: 0px;
+              bottom: 18px;
+              padding: 0px 4px 4px;
+              height: 12px;
+              user-select: none;
+              cursor: pointer;
+              -webkit-tap-highlight-color: transparent;
+              font-family: 'Courier New';
+              font-size: 10px;
+              color: rgb(15, 255, 0);
+              display: none;
+            "
+          >
+            LAYERS
+          </div>
+          <div
+            style="
+              position: absolute;
+              right: 0px;
+              bottom: 36px;
+              padding: 4px 4px 0px;
+              height: 12px;
+              user-select: none;
+              cursor: pointer;
+              -webkit-tap-highlight-color: transparent;
+              font-family: 'Courier New';
+              font-size: 10px;
+              color: rgb(15, 255, 0);
+              display: none;
+            "
+          >
+            HOTSPOTS
+          </div>
+        </div>
+        <div
+          style="
+            display: none;
+            position: absolute;
+            z-index: 3003;
+            overflow: visible;
+            opacity: 0;
+            color: rgb(0, 0, 0);
+            text-size-adjust: none;
+            pointer-events: none;
+            background: none;
+            cursor: default;
+            width: 200px;
+            height: 0px;
+            transform: translateZ(1e12px) translate(-100px, 0px)
+              translate(0px, 0px) rotate(0deg) translate(0px, -2px);
+          "
+        ></div>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transform-origin: 0px 0px;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: normal;
+            color: rgb(0, 0, 0);
+            pointer-events: none;
+            visibility: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              white-space: nowrap;
+              background-color: rgba(51, 51, 51, 0.7);
+              border-radius: 5px;
+            "
+          >
+            <div
+              style="margin: 5px 8px 5px 8px; color: #dddddd; font-size: 14px"
+            >
+              客厅
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transform-origin: 0px 0px;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: normal;
+            color: rgb(0, 0, 0);
+            pointer-events: none;
+            visibility: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              white-space: nowrap;
+              background-color: rgba(51, 51, 51, 0.7);
+              border-radius: 5px;
+            "
+          >
+            <div
+              style="margin: 5px 8px 5px 8px; color: #dddddd; font-size: 14px"
+            >
+              餐厅
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transform-origin: 0px 0px;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: normal;
+            color: rgb(0, 0, 0);
+            pointer-events: none;
+            visibility: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              white-space: nowrap;
+              background-color: rgba(51, 51, 51, 0.7);
+              border-radius: 5px;
+            "
+          >
+            <div
+              style="margin: 5px 8px 5px 8px; color: #dddddd; font-size: 14px"
+            >
+              主卧室1
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transform-origin: 0px 0px;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: normal;
+            color: rgb(0, 0, 0);
+            pointer-events: none;
+            visibility: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              white-space: nowrap;
+              background-color: rgba(51, 51, 51, 0.7);
+              border-radius: 5px;
+            "
+          >
+            <div
+              style="margin: 5px 8px 5px 8px; color: #dddddd; font-size: 14px"
+            >
+              主卧室2
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transform-origin: 0px 0px;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: normal;
+            color: rgb(0, 0, 0);
+            pointer-events: none;
+            visibility: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              white-space: nowrap;
+              background-color: rgba(51, 51, 51, 0.7);
+              border-radius: 5px;
+            "
+          >
+            <div
+              style="margin: 5px 8px 5px 8px; color: #dddddd; font-size: 14px"
+            >
+              书房
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transform-origin: 0px 0px;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: normal;
+            color: rgb(0, 0, 0);
+            pointer-events: none;
+            visibility: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              white-space: nowrap;
+              background-color: rgba(51, 51, 51, 0.7);
+              border-radius: 5px;
+            "
+          >
+            <div
+              style="margin: 5px 8px 5px 8px; color: #dddddd; font-size: 14px"
+            >
+              次卧一
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transform-origin: 0px 0px;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: normal;
+            color: rgb(0, 0, 0);
+            pointer-events: none;
+            visibility: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              white-space: nowrap;
+              background-color: rgba(51, 51, 51, 0.7);
+              border-radius: 5px;
+            "
+          >
+            <div
+              style="margin: 5px 8px 5px 8px; color: #dddddd; font-size: 14px"
+            >
+              客卧二
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: -10000px;
+            transform-origin: 0px 0px;
+            transform: scale(1);
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: normal;
+            color: rgb(0, 0, 0);
+            pointer-events: none;
+            visibility: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              width: 200px;
+              overflow: hidden;
+              text-shadow: rgb(0, 0, 0) 0px 1px 4.8px;
+            "
+          >
+            <div
+              style="
+                margin: 2px 2px 2px 2px;
+                color: #ffffff;
+                font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                text-align: center;
+                font-size: 16px;
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var PANOID = "27909322";
+      var uid = parseInt("513588");
+      var has_expired = parseInt("0");
+      var versions = "0";
+      var music = parseInt("1");
+      var xml = "https://vrxml.justeasy.cn/27909322_1692153783.xml";
+      var krpano;
+      var bodyclass = "";
+      var sendboxopen = "";
+      var lat = "";
+      var lng = "";
+      var shareUrl =
+        "https://vr.justeasy.cn/view/1v6hwm9043g28b87-1692153783.html";
+      var bodyBackgroundColor = "";
+      var advertStatus = parseInt("0");
+      var vr_model_group = parseInt("2");
+      var galleryThumbs,
+        galleryTop,
+        tag_index = 0,
+        json_List;
+      var pano_setting_showthumbs = "false";
+      var wx_share_desc = "aa";
+      var wx_share_imgUrl =
+        "https://vrimg.justeasy.cn/pano/20230727/52-124127_64c1f5770507d.tiles/thumb.jpg";
+      var wx_share_title = "叁.行設計—德鹏翔住宅";
+      var vr_site_vrimg = "https://vrimg.justeasy.cn/";
+      var vr_site_url = "https://vr.justeasy.cn/";
+      var vr_adv_url = "";
+      var vr_site_res1_url = "https://res1.justeasy.cn/";
+      var vr_water_origin = "";
+      var vr_is_vip = "1";
+      var _SessionStoragejson;
+      var _sandBoxisLanguage = 1;
+      var _sandTargetToSandid = [];
+      var _sandTargetToSandList = [];
+      var _sandTargetToSandInfoList = [];
+      var audioHotSpotActiveId = 0;
+      var intro = "设计说明";
+      var last_update_time = "1692153783";
+      var is_encrypt = parseInt("0");
+      var open_advert_pc = "";
+      var open_advert_h5 = "";
+    </script>
+
+    <div class="canvasPop none" id="canvasPop">
+      <div class="canvas_box">
+        <canvas
+          id="myCanvas"
+          width="760"
+          height="920"
+          style="width: 380px; height: 460px"
+        ></canvas>
+        <div
+          class="canvasHary"
+          style="
+            top: 328px;
+            position: absolute;
+            width: 87px;
+            height: 87px;
+            left: 268px;
+            background: url('https://res1.justeasy.cn/images/quanjing/qrbackground.png');
+            cursor: pointer;
+            display: none;
+          "
+        ></div>
+      </div>
+      <ul class="clearfix" id="canavas_operate">
+        <li
+          class="item20227 fl copyLink"
+          data-clipboard-text="https://vr.justeasy.cn/view/1v6hwm9043g28b87-1692153783.html"
+          id="canvas_copy"
+          style="margin-right: 45px; margin-left: 55px"
+        >
+          <i class="icon icon-link" style="width: 100%"></i>
+          <p>复制链接分享</p>
+        </li>
+        <li
+          class="item20227 fl"
+          onclick="shareC()"
+          style="margin-right: 45px; margin-left: 55px"
+        >
+          <i class="icon icon-sm"></i>
+          <p>扫码分享</p>
+          <em></em>
+        </li>
+      </ul>
+    </div>
+    <div class="canvas_img none" id="canvas_img"></div>
+    <div class="canvas_empty none">
+      <canvas width="83" height="83" id="canvasWhite"></canvas>
+    </div>
+    <ul
+      class="pano-wrapper pano-revision"
+      id="pano-wrapper"
+      style="display: block"
+    >
+      <li style="width: 1px; height: 50px"></li>
+      <div
+        class="ewm none"
+        style="padding: 10px; width: 180px; height: 180px; background: #fff"
+      >
+        <div id="shareimg">
+          <img
+            src="https://vrimg.justeasy.cn/pano/20230727/logo/52-513588_64c1f7fb1f9fb_150.jpg"
+            width="50"
+            height="50"
+            style="
+              position: absolute;
+              top: 70px;
+              left: 70px;
+              background: #fff;
+              width: 50px;
+              height: 50px;
+            "
+          />
+          <canvas width="180" height="180"></canvas>
+        </div>
+      </div>
+      <li class="share">
+        <div
+          style="
+            padding: 10px;
+            width: 180px;
+            height: 180px;
+            background: #fff;
+            display: none;
+          "
+        >
+          <div>
+            <img
+              src="https://vrimg.justeasy.cn/pano/20230727/logo/52-513588_64c1f7fb1f9fb_150.jpg"
+              width="50"
+              height="50"
+              style="
+                position: absolute;
+                top: 70px;
+                left: 70px;
+                background: #fff;
+                width: 50px;
+                height: 50px;
+              "
+            />
+          </div>
+        </div>
+        <p class="icon-revision-warp">
+          <span class="icon-revision">
+            <i
+              style="
+                background-image: url('https://res1.justeasy.cn/images/vr-revision/share.png');
+              "
+            ></i>
+          </span>
+        </p>
+        <div class="iconname">分享</div>
+      </li>
+      <li>
+        <a href="javascript:;" id="btn_like" data-val="">
+          <p class="icon-revision-warp">
+            <span class="icon-revision">
+              <i
+                class="item-icon-like"
+                style="
+                  background-image: url('https://res1.justeasy.cn/images/vr-revision/zan.png');
+                "
+              ></i>
+            </span>
+          </p>
+        </a>
+        <div class="iconname" id="like_num">3</div>
+      </li>
+      <li class="vr-preview-icon-right">
+        <div class="scenes vr-tubiao cur" id="show_scenes">
+          <a href="javascript:;">
+            <img
+              src="https://res1.justeasy.cn/vr16/skin/scene.png"
+              class="icon"
+            />
+          </a>
+          <div class="iconname">场景选择</div>
+        </div>
+      </li>
+    </ul>
+    <script type="text/html" id="material-view">
+      <div class="material-view">
+        <button class="m-back" onclick="joinscene('{{id}}')">返回主场景</button>
+        <div class="cont clearfix">
+          {{each list value}}
+          <div
+            class="item fl"
+            style="cursor:pointer;"
+            onclick="joinscene('{{value.id}}')"
+          >
+            <div class="pic">
+              <img src="https://vrimg.justeasy.cn/{{value.pic}}" />
+            </div>
+            <p class="txt ellipsis">{{value.name}}</p>
+            <i class="icon icon-now-material {{value.active}}"></i>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </script>
+    <script
+      type="text/javascript"
+      src="https://res1.justeasy.cn/js/3.0/page/vr/previewnew.js?v=2023008016019111"
+    ></script>
+    <script>
+      function startPano() {
+        if (is_offline_pano == 1) {
+          return false;
+        }
+        embedpano({
+          swf: "https://res1.justeasy.cn/vr16/tour.swf?v=16",
+          xml: xml,
+          target: "pano",
+          html5: "prefer",
+          mobilescale: 1.0,
+          passQueryParameters: true,
+          wmode: "opaque",
+        });
+        krpano = document.getElementById("krpanoSWFObject");
+      }
+      var timeClock;
+      if (bodyclass == "body-class") {
+        $("#loading").show();
+        if (bodyBackgroundColor) {
+          $("body").css("background-color", bodyBackgroundColor);
+        }
+        timeClock = setTimeout("startPano()", 0);
+      } else {
+        startPano();
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://res1.justeasy.cn/min/b=js&amp;f=art-template-web.js,swiper4.0.5.min.js,flexible.js,iscroll2.js,navbarscroll.js?v=202300801601"
+    ></script>
+    <div class="tab-shuffling visibility no-show" id="tab-shuffling">
+      <div class="lb" id="lb">
+        <div class="cont vr-lb-groupid-0">
+          <div
+            class="swiper-container gallery-top gallery-top_0 swiper-container-initialized swiper-container-horizontal"
+          >
+            <div class="swiper-wrapper" style="display: none">
+              <div
+                class="swiper-slide swiper-slide-active"
+                style="width: 1083px; margin-right: 10px"
+              >
+                入户门厅
+              </div>
+
+              <div
+                class="swiper-slide swiper-slide-next"
+                style="width: 1083px; margin-right: 10px"
+              >
+                客厅
+              </div>
+
+              <div
+                class="swiper-slide"
+                style="width: 1083px; margin-right: 10px"
+              >
+                餐厅厨房区域
+              </div>
+
+              <div
+                class="swiper-slide"
+                style="width: 1083px; margin-right: 10px"
+              >
+                品茗区
+              </div>
+
+              <div
+                class="swiper-slide"
+                style="width: 1083px; margin-right: 10px"
+              >
+                主卧室1
+              </div>
+
+              <div
+                class="swiper-slide"
+                style="width: 1083px; margin-right: 10px"
+              >
+                主卧室2
+              </div>
+
+              <div
+                class="swiper-slide"
+                style="width: 1083px; margin-right: 10px"
+              >
+                次卧一
+              </div>
+
+              <div
+                class="swiper-slide"
+                style="width: 1083px; margin-right: 10px"
+              >
+                书房一
+              </div>
+
+              <div
+                class="swiper-slide"
+                style="width: 1083px; margin-right: 10px"
+              >
+                客卧二
+              </div>
+            </div>
+            <span
+              class="swiper-notification"
+              aria-live="assertive"
+              aria-atomic="true"
+            ></span
+            ><span
+              class="swiper-notification"
+              aria-live="assertive"
+              aria-atomic="true"
+            ></span>
+          </div>
+          <div
+            class="swiper-container gallery-thumbs gallery-thumbs_0 swiper-container-initialized swiper-container-horizontal swiper-container-free-mode swiper-container-thumbs"
+          >
+            <div
+              class="swiper-wrapper"
+              style="
+                transition-duration: 0ms;
+                transform: translate3d(273.25px, 0px, 0px);
+              "
+            >
+              <div
+                class="swiper-slide vr-slide vr-pano2sceneid-77213622 vr-groupid-0 swiper-slide-visible swiper-slide-active swiper-slide-thumb-active"
+                data-index="0"
+                data-pano2sceneid="77213622"
+                data-groupid="0"
+                title="入户门厅"
+                style="width: 50.7222px; margin-right: 10px"
+              >
+                <div class="pic">
+                  <img
+                    id="pic-img-"
+                    src="https://vrimg.justeasy.cn/pano/20230727/52-124127_64c1f5770507d.tiles/thumb.jpg"
+                  />
+                </div>
+                <div class="name2">
+                  <div
+                    id="container_small_tip77213622"
+                    class="container_small_tip"
+                  >
+                    <div
+                      id="content_small_tip77213622"
+                      class="content_small_tip content_small_tip2"
+                      style="left: 0px"
+                    >
+                      入户门厅
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide vr-slide vr-pano2sceneid-77213620 swiper-slide-visible swiper-slide-next"
+                data-index="1"
+                data-pano2sceneid="77213620"
+                data-groupid="0"
+                title="客厅"
+                style="width: 50.7222px; margin-right: 10px"
+              >
+                <div class="pic">
+                  <img
+                    id="pic-img-"
+                    src="https://vrimg.justeasy.cn/pano/20230816/42-104212_64dc3784a52ab.tiles/thumb.jpg"
+                  />
+                </div>
+                <div class="name2">
+                  <div
+                    id="container_small_tip77213620"
+                    class="container_small_tip"
+                  >
+                    <div
+                      id="content_small_tip77213620"
+                      class="content_small_tip content_small_tip2"
+                      style="left: 0px"
+                    >
+                      客厅
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide vr-slide vr-pano2sceneid-77213617 swiper-slide-visible"
+                data-index="2"
+                data-pano2sceneid="77213617"
+                data-groupid="0"
+                title="餐厅厨房区域"
+                style="width: 50.7222px; margin-right: 10px"
+              >
+                <div class="pic">
+                  <img
+                    id="pic-img-"
+                    src="https://vrimg.justeasy.cn/pano/20230816/42-104252_64dc37ac497cb.tiles/thumb.jpg"
+                  />
+                </div>
+                <div class="name2">
+                  <div
+                    id="container_small_tip77213617"
+                    class="container_small_tip"
+                  >
+                    <div
+                      id="content_small_tip77213617"
+                      class="content_small_tip content_small_tip2"
+                      style="left: 0px"
+                    >
+                      餐厅厨房区域
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide vr-slide vr-pano2sceneid-77213621 swiper-slide-visible"
+                data-index="3"
+                data-pano2sceneid="77213621"
+                data-groupid="0"
+                title="品茗区"
+                style="width: 50.7222px; margin-right: 10px"
+              >
+                <div class="pic">
+                  <img
+                    id="pic-img-"
+                    src="https://vrimg.justeasy.cn/pano/20230727/52-124122_64c1f572a9d2e.tiles/thumb.jpg"
+                  />
+                </div>
+                <div class="name2">
+                  <div
+                    id="container_small_tip77213621"
+                    class="container_small_tip"
+                  >
+                    <div
+                      id="content_small_tip77213621"
+                      class="content_small_tip content_small_tip2"
+                      style="left: 0px"
+                    >
+                      品茗区
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide vr-slide vr-pano2sceneid-77336849 swiper-slide-visible"
+                data-index="4"
+                data-pano2sceneid="77336849"
+                data-groupid="0"
+                title="主卧室1"
+                style="width: 50.7222px; margin-right: 10px"
+              >
+                <div class="pic">
+                  <img
+                    id="pic-img-"
+                    src="https://vrimg.justeasy.cn/pano/20230729/52-162225_64c4cc412a806.tiles/thumb.jpg"
+                  />
+                </div>
+                <div class="name2">
+                  <div
+                    id="container_small_tip77336849"
+                    class="container_small_tip"
+                  >
+                    <div
+                      id="content_small_tip77336849"
+                      class="content_small_tip content_small_tip2"
+                      style="left: 0px"
+                    >
+                      主卧室1
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide vr-slide vr-pano2sceneid-77213619 swiper-slide-visible"
+                data-index="5"
+                data-pano2sceneid="77213619"
+                data-groupid="0"
+                title="主卧室2"
+                style="width: 50.7222px; margin-right: 10px"
+              >
+                <div class="pic">
+                  <img
+                    id="pic-img-"
+                    src="https://vrimg.justeasy.cn/pano/20230809/32-092205_64d2ea3dc326b.tiles/thumb.jpg"
+                  />
+                </div>
+                <div class="name2">
+                  <div
+                    id="container_small_tip77213619"
+                    class="container_small_tip"
+                  >
+                    <div
+                      id="content_small_tip77213619"
+                      class="content_small_tip content_small_tip2"
+                      style="left: 0px"
+                    >
+                      主卧室2
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide vr-slide vr-pano2sceneid-77213618 swiper-slide-visible"
+                data-index="6"
+                data-pano2sceneid="77213618"
+                data-groupid="0"
+                title="次卧一"
+                style="width: 50.7222px; margin-right: 10px"
+              >
+                <div class="pic">
+                  <img
+                    id="pic-img-"
+                    src="https://vrimg.justeasy.cn/pano/20230808/32-094245_64d19d95dd76c.tiles/thumb.jpg"
+                  />
+                </div>
+                <div class="name2">
+                  <div
+                    id="container_small_tip77213618"
+                    class="container_small_tip"
+                  >
+                    <div
+                      id="content_small_tip77213618"
+                      class="content_small_tip content_small_tip2"
+                      style="left: 0px"
+                    >
+                      次卧一
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide vr-slide vr-pano2sceneid-77296198 swiper-slide-visible"
+                data-index="7"
+                data-pano2sceneid="77296198"
+                data-groupid="0"
+                title="书房一"
+                style="width: 50.7222px; margin-right: 10px"
+              >
+                <div class="pic">
+                  <img
+                    id="pic-img-"
+                    src="https://vrimg.justeasy.cn/pano/20230808/32-094320_64d19db8b5ee6.tiles/thumb.jpg"
+                  />
+                </div>
+                <div class="name2">
+                  <div
+                    id="container_small_tip77296198"
+                    class="container_small_tip"
+                  >
+                    <div
+                      id="content_small_tip77296198"
+                      class="content_small_tip content_small_tip2"
+                      style="left: 0px"
+                    >
+                      书房一
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide vr-slide vr-pano2sceneid-77329743 swiper-slide-visible"
+                data-index="8"
+                data-pano2sceneid="77329743"
+                data-groupid="0"
+                title="客卧二"
+                style="width: 50.7222px; margin-right: 10px"
+              >
+                <div class="pic">
+                  <img
+                    id="pic-img-"
+                    src="https://vrimg.justeasy.cn/pano/20230729/52-144620_64c4b5bcb1248.tiles/thumb.jpg"
+                  />
+                </div>
+                <div class="name2">
+                  <div
+                    id="container_small_tip77329743"
+                    class="container_small_tip"
+                  >
+                    <div
+                      id="content_small_tip77329743"
+                      class="content_small_tip content_small_tip2"
+                      style="left: 0px"
+                    >
+                      客卧二
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="swiper-notification"
+              aria-live="assertive"
+              aria-atomic="true"
+            ></span
+            ><span
+              class="swiper-notification"
+              aria-live="assertive"
+              aria-atomic="true"
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper02 nav-tab none" id="nav-tab" style="">
+        <div
+          class="scroller"
+          style="
+            width: 6px;
+            transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);
+            transition-duration: 0ms;
+            transform: translate(0px, 0px) translateZ(0px);
+          "
+        >
+          <ul class="clearfix">
+            <li
+              class="item nav-tab-groupid-0 cur"
+              data-id="0"
+              data-index="0"
+              style="margin-left: 0px; margin-right: 0px"
+            >
+              <a href="javascript:void(0)">默认</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/html" id="template_lb">
+      <div class="lb" id="lb">
+        {{each jsonList val i }}
+        <div class="cont {{if i!=0 }}none{{/if}} vr-lb-groupid-{{val.id}} ">
+          <div class="swiper-container gallery-top gallery-top_{{val.id}}">
+            <div class="swiper-wrapper" style="display: none;">
+              {{each val.son val2 i}}
+              <div class="swiper-slide">{{val2.name}}</div>
+              {{/each}}
+            </div>
+          </div>
+          <div
+            class="swiper-container gallery-thumbs gallery-thumbs_{{val.id}}"
+          >
+            <div class="swiper-wrapper">
+              {{each val.son val2 k}}
+              <div
+                class="swiper-slide vr-slide vr-pano2sceneid-{{val2.pano2sceneid}} {{if k==0 }} vr-groupid-{{val2.groupid}} {{/if}} {{if val2.hide==1}}none{{/if}}"
+                data-index="{{k}}"
+                data-pano2sceneid="{{val2.pano2sceneid}}"
+                data-groupid="{{val2.groupid}}"
+                title="{{val2.name}}"
+              >
+                <div class="pic">
+                  <img
+                    id="pic-img-{{val.val2}}"
+                    src="https://vrimg.justeasy.cn/{{val2.preview}}"
+                  />
+                </div>
+                <div class="name2">
+                  <div
+                    id="container_small_tip{{val2.pano2sceneid}}"
+                    class="container_small_tip"
+                  >
+                    <div
+                      id="content_small_tip{{val2.pano2sceneid}}"
+                      class="content_small_tip"
+                    >
+                      {{val2.name}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="wrapper02 nav-tab none" id="nav-tab">
+        <div class="scroller">
+          <ul class="clearfix">
+            {{each jsonName val i}} {{if i == 0}}
+            <li
+              class="item  nav-tab-groupid-{{val.id}}"
+              data-id="{{val.id}}"
+              data-index="{{i}}"
+            >
+              <a href="javascript:void(0)">{{val.name}}</a>
+            </li>
+            {{else/}}
+            <li
+              class="item  nav-tab-groupid-{{val.id}}"
+              data-id="{{val.id}}"
+              data-index="{{i}}"
+            >
+              <a href="javascript:void(0)">{{val.name}}</a>
+            </li>
+            {{/if}} {{/each}}
+          </ul>
+        </div>
+      </div>
+    </script>
+    <script
+      type="text/javascript"
+      src="https://res1.justeasy.cn/min/b=js&amp;f=3.0/page/vr/roll.js?v=202300801601"
+    ></script>
+    <script>
+      json_List = {
+        jsonName: [{ name: "\u9ed8\u8ba4", id: 0 }],
+        jsonList: [
+          {
+            id: 0,
+            name: "\u9ed8\u8ba4",
+            son: [
+              {
+                name: "\u5165\u6237\u95e8\u5385",
+                groupid: 0,
+                sceneid: "89025538",
+                pano2sceneid: "77213622",
+                preview:
+                  "pano\/20230727\/52-124127_64c1f5770507d.tiles\/thumb.jpg",
+                hide: 0,
+              },
+              {
+                name: "\u5ba2\u5385",
+                groupid: 0,
+                sceneid: "90196050",
+                pano2sceneid: "77213620",
+                preview:
+                  "pano\/20230816\/42-104212_64dc3784a52ab.tiles\/thumb.jpg",
+                hide: 0,
+              },
+              {
+                name: "\u9910\u5385\u53a8\u623f\u533a\u57df",
+                groupid: 0,
+                sceneid: "90196125",
+                pano2sceneid: "77213617",
+                preview:
+                  "pano\/20230816\/42-104252_64dc37ac497cb.tiles\/thumb.jpg",
+                hide: 0,
+              },
+              {
+                name: "\u54c1\u8317\u533a",
+                groupid: 0,
+                sceneid: "89025537",
+                pano2sceneid: "77213621",
+                preview:
+                  "pano\/20230727\/52-124122_64c1f572a9d2e.tiles\/thumb.jpg",
+                hide: 0,
+              },
+              {
+                name: "\u4e3b\u5367\u5ba41",
+                groupid: 0,
+                sceneid: "89169281",
+                pano2sceneid: "77336849",
+                preview:
+                  "pano\/20230729\/52-162225_64c4cc412a806.tiles\/thumb.jpg",
+                hide: 0,
+              },
+              {
+                name: "\u4e3b\u5367\u5ba42",
+                groupid: 0,
+                sceneid: "89776275",
+                pano2sceneid: "77213619",
+                preview:
+                  "pano\/20230809\/32-092205_64d2ea3dc326b.tiles\/thumb.jpg",
+                hide: 0,
+              },
+              {
+                name: "\u6b21\u5367\u4e00",
+                groupid: 0,
+                sceneid: "89718920",
+                pano2sceneid: "77213618",
+                preview:
+                  "pano\/20230808\/32-094245_64d19d95dd76c.tiles\/thumb.jpg",
+                hide: 0,
+              },
+              {
+                name: "\u4e66\u623f\u4e00",
+                groupid: 0,
+                sceneid: "89718967",
+                pano2sceneid: "77296198",
+                preview:
+                  "pano\/20230808\/32-094320_64d19db8b5ee6.tiles\/thumb.jpg",
+                hide: 0,
+              },
+              {
+                name: "\u5ba2\u5367\u4e8c",
+                groupid: 0,
+                sceneid: "89161299",
+                pano2sceneid: "77329743",
+                preview:
+                  "pano\/20230729\/52-144620_64c4b5bcb1248.tiles\/thumb.jpg",
+                hide: 0,
+              },
+            ],
+          },
+        ],
+      };
+      function lbFun1(el, num, OffsetAfter) {
+        galleryThumbs = new Swiper(".gallery-thumbs_" + el, {
+          spaceBetween: 10,
+          slidesPerView: num,
+          freeMode: true,
+          watchSlidesVisibility: true,
+          watchSlidesProgress: true,
+          slidesOffsetAfter: OffsetAfter,
+          centerInsufficientSlides: true,
+          on: {
+            init: function () {
+              if (el > 0) {
+                $(".swiper-slide")
+                  .removeClass("swiper-slide-active swiper-slide-thumb-active")
+                  .children();
+              }
+            },
+          },
+        });
+        galleryTop = new Swiper(".gallery-top_" + el, {
+          spaceBetween: 10,
+          slidesOffsetAfter: 30,
+          centerInsufficientSlides: true,
+          thumbs: { swiper: galleryThumbs },
+        });
+      }
+      $(document).ready(function () {
+        if (is_offline_pano == 1) {
+          return false;
+        }
+        $(window).resize(function (event) {
+          reloadnum();
+        });
+        $(window).bind("orientationchange", function (e) {
+          $("#tab-shuffling").addClass("phone");
+          $(".phone .swiper-slide").css({
+            width: "65px !important",
+            height: "65px !important",
+          });
+          reloadnum();
+        });
+        var _w, _num;
+        if (vr_model_group != 0) {
+          $("#show_scenes").show();
+          $(document).on("click", ".swiper-container .vr-slide", function () {
+            let _SCENEID = $(this).attr("data-pano2sceneid");
+            krpano.call(
+              "loadscene(scene_" + _SCENEID + ",null,MERGE,BLEND(0.8));"
+            );
+            if (vip_auth_TopAdvert > 0) {
+              for (var i in krpano.get("hotspot").getArray()) {
+                if (
+                  krpano
+                    .get("hotspot")
+                    .getArray()
+                    [i].name.indexOf("nadirlogo") >= 0
+                ) {
+                  krpano.call(
+                    "delhotspot(" +
+                      krpano.get("hotspot").getArray()[i].name +
+                      ")"
+                  );
+                }
+              }
+            }
+            $(".swiper-slide").removeClass(
+              "swiper-slide-active swiper-slide-thumb-active"
+            );
+            $(".vr-pano2sceneid-" + _SCENEID).addClass(
+              "swiper-slide-active swiper-slide-thumb-active"
+            );
+            handerWordRoll(_SCENEID);
+          });
+          let html = template("template_lb", json_List);
+          let is_pic_true = IsPC();
+          function IsPC() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = [
+              "Android",
+              "iPhone",
+              "SymbianOS",
+              "Windows Phone",
+              "iPad",
+              "iPod",
+            ];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+              if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+              }
+            }
+            return flag;
+          }
+          $("#tab-shuffling").append(html);
+          handerWordRoll(json_List.jsonList[0].son[0].pano2sceneid);
+          function reloadnum() {
+            if (is_pic_true) {
+              $("#tab-shuffling").removeClass("phone");
+              _w = $("body,html").width() - 140;
+              _num = Math.ceil(_w / 110);
+            } else {
+              $("#tab-shuffling").addClass("phone");
+              _w = $("body,html").width();
+              _num = Math.ceil(_w / 75);
+            }
+            lbFun1(
+              json_List.jsonList[0].id,
+              _num,
+              json_List.jsonList[0].son.length * 15
+            );
+          }
+          reloadnum();
+          $("#nav-tab").navbarscroll({
+            defaultSelect: tag_index,
+            scrollerWidth: 6,
+            fingerClick: 1,
+            endClickScroll: function (obj) {},
+          });
+          $("#nav-tab .item").click(function () {
+            let _index = $(this).index();
+            $("#lb .cont").eq(_index).show().siblings().hide();
+            lbFun1(
+              json_List.jsonList[_index].id,
+              _num,
+              json_List.jsonList[_index].son.length * 15
+            );
+            $(".swiper-slide").removeClass(
+              "swiper-slide-thumb-active swiper-slide-active"
+            );
+            $(
+              ".vr-pano2sceneid-" + krpano.get("scene[get(xml.scene)].id")
+            ).addClass("swiper-slide-thumb-active swiper-slide-active");
+          });
+          $(document).on("click", "#show_scenes", function () {
+            if ($("#tab-shuffling").hasClass("visibility")) {
+              $("#tab-shuffling").removeClass("visibility");
+              $(".tab-shuffling").css({ transform: "translateY(0px)" });
+              $(".tab-shuffling").addClass("no-show");
+            } else {
+              let isTure = $("#tab-shuffling").hasClass("no-show");
+              if (isTure) {
+                $(".tab-shuffling").css({ transform: "translateY(300px)" });
+                $(".tab-shuffling").removeClass("no-show");
+              } else {
+                $(".tab-shuffling").css({ transform: "translateY(0px)" });
+                $(".tab-shuffling").addClass("no-show");
+              }
+            }
+          });
+        }
+      });
+    </script>
+    <script>
+      if (is_offline_pano == 0) {
+        $(function () {
+          if (app_referer == 2) {
+            if (is_mobile > 0) {
+              $("#btn_like").remove();
+            } else {
+              $("#btn_like").parent().remove();
+            }
+          }
+          if (is_mobile > 0) {
+            if (open_advert_h5 != "") {
+              var _style = "max-width:100%;height: 100%";
+              if (is_encrypt == 1) {
+                $("#loadingImg").hide();
+              }
+              $("#loadingImg img")
+                .attr("src", open_advert_h5)
+                .attr("style", _style);
+              $("#bodyclass").show();
+            }
+          } else {
+            if (open_advert_pc != "") {
+              var _style = "width:100%;max-height: 100%";
+              if (is_encrypt == 1) {
+                $("#loadingImg").hide();
+              }
+              $("#loadingImg img")
+                .attr("src", open_advert_pc)
+                .attr("style", _style);
+              $("#bodyclass").show();
+            }
+          }
+        });
+      }
+    </script>
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d354a40e1143f3574bc86106fd51eddb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <script type="text/javascript">
+      function countDownFn() {
+        if (countDownClearTime) {
+          return false;
+        }
+        countDownClearTime = setInterval(() => {
+          if (_time == 0) {
+            clearInterval(countDownClearTime);
+            _time = 0;
+          } else {
+            _time--;
+          }
+          $("#time").text(_time);
+        }, 1000);
+      }
+      if (_time > 0 && is_offline_pano == 0) {
+        countDownFn();
+      }
+      function goTel(mobile) {
+        if (app == "ios") {
+          window.webkit.messageHandlers.goTel.postMessage({ num: mobile });
+        } else {
+          android.goTel(mobile);
+        }
+      }
+      function getCanvasInfoData() {
+        var code = $("#shareimg").find("canvas")[0];
+        var codeImg = code.toDataURL("image/png");
+        getCanvasWhite();
+        var data = {
+          canvas: {
+            casePicUrl:
+              "https://vrimg.justeasy.cn/pano/20230727/52-124127_64c1f5770507d.tiles/thumb.jpg",
+            codeWhiteUrl: whiteUrl,
+            codeUrl: codeImg,
+            logoUrl: "https://res1.justeasy.cn/images/vr/vr20227/logo2.png",
+            uerUrl:
+              "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2NjIpLCBxdWFsaXR5ID0gODUK/9sAQwAFAwQEBAMFBAQEBQUFBgcMCAcHBwcPCwsJDBEPEhIRDxERExYcFxMUGhURERghGBodHR8fHxMXIiQiHiQcHh8e/9sAQwEFBQUHBgcOCAgOHhQRFB4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4e/8IAEQgAlgCWAwEiAAIRAQMRAf/EABwAAAEFAQEBAAAAAAAAAAAAAAABAgUGBwMECP/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/aAAwDAQACEAMQAAABvAHmdoqKAA0zONKpdlSibHW9YeqLSc5rkK5HDVzXIljiZ6awBiCorABiwc5yazSvWSH2mOVHXLne7vNRbkUTlRQ9RyJrYxPJhXsABQGKAKj1+807VVh6msTsn5Pdz7QcfaYa58DkW4UBPZYCfgOe1n89sNFiEWQVFa4Zxp1EtVLzykfrNk9HPphsvLqqIDx2SF1z8wFLZICfr/PddqNtpPRnsczhmz5v2KhFLXbF5aM4i5bhopNzVx0crVB3nfwaiT0GkapX5+v41XKDfc66cvVP15+kb90y3UeXZVQTz+NtVT0lOEK+lIcODqHqxyHiAbNX5+A5ta3nGj5t1YdvR4fbrDtFzl8Vv61a0cuvgz7UM5tVfjIRus9Hc3tPVqpvEE9ngp2I5davQdY66xlMnpHRrPPRfukulaB5/Qn6albItrPa/Zqdvn7lg26RONhXBLESB9FK1fO6nCK0AMUQBRBjmOYLOaze6vvFSOy75cXdHByOoG+KHndQoCAKFAAAYcwCEpwaRVUDoyVQAAH/AP/EACkQAAAFAwMEAQUBAAAAAAAAAAABAgMEBRESEBMgFCEwMSIGIyQyM0D/2gAIAQEAAQUC5LSS0OJNC5ybt+AvbR9udXbwlOpyQXhaPtzrDeUYxITi/wCBo/A6jcaWVjnJ1jIyD7PFHhqreEuQnJotIZBSbk+1yefJpzlWm7smHE4ul7il8QtNyfa41X3T5PKQjdZUQmpspv8AZgvhotNyebtwq3sxS6gmQvjU29uXLTkzG7qR+uriLk83Y9Kv7UHXFtT6TOROj8K23dtQips4XFxFycbsYq/sxIO8mBKchyIchuVH1lt7scwhP3uBrQQOQ0QcfQelXCg+f5oo9QVBfbWlxGtQb25WRIBzGwc0wcp0wbiz41cKEk/yi9D6fqfTL1rjYWV0l28FXCw//do+2n05Ustag3uRDEksX+dW9rDv9GzsrQjsdCqPVtaS29qROT8edV9rIdHKUpNMmGE0yQCpSwVKIR4CWHY7pOoFbbs68nJstLjcQN9sdS3pUG1rNMZwFFcBRFjpFDox0iQUVsNsoQYqje5EMS825N1aWFhbyK7k+jbdqiO9hYWFhj5DFYRjIlozY/wGKsnKMYWnFywsLCw//8QAHBEAAgEFAQAAAAAAAAAAAAAAAAECEBESIDAD/9oACAEDAQE/AdHydLckNc2qzIu9Vt6CE71yZfT1EJ2o9pQyF5oxRakjIyMnvJcnp//EACARAAICAgIDAQEAAAAAAAAAAAABAhAREgMxICEwE0H/2gAIAQIBAT8BuIvihVt8FT7IyuI1cT+DqMqXZAnDWkO1k9i7OIaySjrXaNEYtHEMlHI1giLwRHk1HzM/SRnImQ9mpqarzgzPxj4f/8QANBAAAQIDBQYDBgcAAAAAAAAAAQACAxAhESAxUYESMDJAQVJhcpEEEyOhosEUIjNDYnGC/9oACAEBAAY/ArxacCLEWnEGxbWXJbXR4tRbnyQf2GR8a8i5h6ixEHomv5J2Tqpw3bGuwd1vtidpk5u6YvcvPlN57MxJrt1Dk72d5sjM+oXnZGqPhXdQ9ZOiQ3bLmuoVtikQcbbrIuVJFuR3MPWUXzIRoeozCbGhGh+Vx7MxSVud2rgsbVRplD1lF8xlWsJ3GPug9h2mmoNx7eltoW07BUBK/KwLGxVcbsPWUQ/zM/w8Y/Bdge03GRdCiM1ZuIesn+YqyY9jjur+2ftN46iokfGu4ZrJ393LQvdRT8dv1eM3syKDstwyRsgP9F+nZ/pVLBqqxR6KsU+ibFZEiBzcFb16iTYncLEW3OILiXWTNlpK4CuFdFxBcfyXEViVa22Ts21k9ttMQsTyFhTmZFMiackH9wThryW12mTm5G7/AP/EACgQAAIBAgQGAwEBAQAAAAAAAAABERAhMUFRcSBhgaHB8DCRsdHh8f/aAAgBAQABPyHixBkxjjpiIzOKiEIQqWp8MnEX6GZyKQWWeKohCFRC+GRyr9h+qiC5WBCEiGsRUVLHwKwM4NWobQy0jJwxCF4kZyQ004dFRo+GeJZPyasxYwiLaFFHdIiHDEIVLFE2zjh1Xgezo0ImxehBQgoHKVFXt2TxfZn5xJa6S3yGJtOzRzlsxZUgSqye0pcHZPwPF0e6oj34oWlk+v8ApzDYEhFhOBBMmSr2HhQ1JKIyEmC10Hrs+GAFd57MSU08B74MHConW1TsPCnbTD7bq2VpMlyZebaPg1H+xlTFwzDb1PHSGvcUx7PCiFGv7CJrK38LmIvowM1wQcoboGO6IQX/ACx3AbsyvsRjP6k8GLZ4U+iMR5RiIG/LntHBgS9pXkW5wSCTNsU4EIQhVxbPCi9vpJNyqIhW7ZufrCsFqx9VHJBIQqIVO18DCXP5/wBIHnYVHIY01dNZC4gk35PV66A2Nsiw80CEKir2L8DWnCGzXDeMDK+9B9L75/DK3aZnbtAZCKWlfwySXoUiNWkbo5lKw9hEFi0hpx+8adWyGjJ+lLDAnMIhh/1Ecn6izhWpAs76hLFpiOb0sJZHpj2oiB0z6DG7F3Uj5xFiJTUMYyzkWxv8ea6+bMQird5eo1mSh0FgQRSPlJ1SH92oTkEFECJE/9oADAMBAAIAAwAAABACoXwpQPBnEahRbhAA4U0nRRYAk6CHJPZ79unTA0K/su+AbbhHM24ESD8NBoFykCyvX7lHKQYsvn2E2k+4vM7wMrKg0CP0MByMMPz/xAAcEQEAAwADAQEAAAAAAAAAAAABABARICExQXH/2gAIAQMBAT8Qth74j1wYOqHm2PXBjQ6n3OG0xmdwrPy1gTFGMHdbFIhTwIsdIA2txjLT7Wxngi6jKCJpRhbA9Qcz+TB5E6iw2fmboeOTQyZMmR5eol//xAAbEQEAAwEBAQEAAAAAAAAAAAABABARIUExIP/aAAgBAgEBPxC35HymMYnfwsY+0jctOwop8pxpxv6j/SFPybC7ByacuOrNmnynjFhGh4g4q6WAMYiyEPSAzJ8IzI+z3B2AcYixi8i0/D7F1kTFvYv6mTBrK5sIWM6jTZtFF/MHl//EACYQAQACAQEIAwEBAQAAAAAAAAEAESExEEFRYXGBkaEgscHw0eH/2gAIAQEAAT8Q2HwIG+gCUwjq6gDUpc3vo4+6jEHjD5AI7HOevsNh8MAwOSmPoPeCpvehhbFSUkPiBBsevsNptzBFV7T7gypivaa+72jLQLFtBHYJohKGbD5UQWx4Wa9pZyQOCNJMcZbpOT6fO0KNTdKDCSKwpIbBLT8TYbMGgHWcewveUIWr9Rk+o7PLE1SluUQCZiJrJFUFJtFWkJUyIPFEpeWYNljjYfDNVa/43h5hmLqF+hyemGlxZWvKEdYzHbOlI06mwbP7/EhrhRmvP+eOG02iUZ7N2881CbUUjuZQpg940+/Ur+whCOsZjuYw0whHX8OYbIRGxHSFsoau6MeS8nfjRD4YqF/d9phBfoNfVy+dJQ+UIQjRqOMTfDaAsQ41tcQHk3JvJg4k723Qs7m6Gy9muEVOoex8wSFopOM1wEL4wUTlBgwYR4hGl1LtIeJQryKWHcpcjXrcdzTKxeytDqW5P+6JDYQTC2vRz7BBS3CQmAX1P4gwYMsNWexUkvS64MyyqOKCGxhYlgOAdxRQizAHhuDg9mOCG9urYmiQly52ZANQ8XXaWlQ2tXXiAZLdVD3MVzFn/JggvL/Z4NV1BObgwYbOFRGpObzzhk6JcUbeD7hN/JuvBzxgiCNjpty6sLQajwXcgA6UiKKKKKDDYhoYuZN7S8TlY6QYpo4NvpN94nkY3F3sy6cyXljqWd4ZhxQA76+xiiigxRS5kP8AFxgukXNF9pmjjJFBjZXEKUaIwfqR8V4pz4O++iIIiCOpMd0s62fRJcdm10f+nuLfFFBigwYb/tzFiDRumcVRznOooKLc/lWPydZyfUO9vfZIf0v9lhGjlKntkOibxhMhicZ/jLmrcF8HpPEx9a/dqe5YeJiKI76o1NNXazi9zX8midEf12UpNkzWkxgC63j7j9Sdf9ojXvf5Ju16W/k4S6W/YfXdCT7og/JVgVpvWS5c7FP7OJhmMegY3nrTtPd84tbcstDYD8iXL2XDfxg4jqS2O73iDh7kvI4r7gcktwi3DdCU3wh8b23LmaYQLy9h9RUBffGX1Z3hu1S//Ahx+CHAPEBvQgwlwZcuXL+DpiZYOvJWPZ4hERLIC20DpeICHCJZun93P//Z",
+            title: "叁.行設計—德鹏翔住宅",
+            userName: "xxxxx",
+          },
+          operate: { linkUrl: "" },
+        };
+        var _html = `<img src="${data.canvas.casePicUrl}" crossOrigin="anonymous" id="canvas_case_pic" ><img src="${data.canvas.codeWhiteUrl}" crossOrigin="anonymous" id="canvas_code_white" ><img src="${data.canvas.codeUrl}" crossOrigin="anonymous" id="canvas_code"><img src="${data.canvas.logoUrl}" crossOrigin="anonymous" id="canvas_logo" ><img src="${data.canvas.uerUrl}" crossOrigin="anonymous" id="canvas_user"/>`;
+        $("#canvas_img").append(_html);
+        if (data.canvas.title.length > 10) {
+          data.canvas.title = data.canvas.title.substring(0, 10) + "...";
+        }
+        if (data.canvas.userName.length > 6) {
+          data.canvas.userName = data.canvas.userName.substring(0, 6) + "...";
+        }
+        setTimeout(function () {
+          canvasPop(data.canvas.title, data.canvas.userName);
+        }, 300);
+      }
+    </script>
+    <div class="vr-gg-box none" id="preview_advert"></div>
+  </body>
+</html>
